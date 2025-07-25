@@ -20,19 +20,19 @@
         <main class="flex-1 overflow-y-auto bg-white">
             <!-- Product Image Section -->
             <div class="relative">
-                <img src="https://placehold.co/400x300/E5E7EB/6B7280?text=Mitsubishi+Heavy+Duty" 
-                    alt="Mitsubishi Heavy Duty" class="w-full h-80 object-cover">
-                
+                <img src="https://placehold.co/400x300/E5E7EB/6B7280?text=Mitsubishi+Heavy+Duty" alt="Mitsubishi Heavy Duty"
+                    class="w-full h-80 object-cover">
+
                 <!-- Rating Overlay -->
                 <div class="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-xs">
                     ⭐ 4.5
                 </div>
-                
+
                 <!-- Mitsubishi Logo -->
                 <div class="absolute top-4 left-4 bg-white px-2 py-1 rounded">
                     <span class="text-xs font-bold text-red-600">MITSUBISHI</span>
                 </div>
-                
+
                 <!-- Heavy Duty Badge -->
                 <div class="absolute bottom-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium">
                     Heavy Duty
@@ -42,9 +42,10 @@
             <!-- Product Info -->
             <div class="p-4">
                 <h2 class="font-bold text-lg text-gray-900 mb-2">
-                    แอร์ Mitsubishi Heavy Duty ติดตั้ง ระบบ Inverter รุ่น DXK15YW-W1 [TP/220V] (Haru - Standard Inverter) (ขอดูคู่มือ: 24 ไฟ) บนเฟอร์15,480บีทียู เมอร์5 (R32) รุ่น2019-2024
+                    แอร์ Mitsubishi Heavy Duty ติดตั้ง ระบบ Inverter รุ่น DXK15YW-W1 [TP/220V] (Haru - Standard Inverter)
+                    (ขอดูคู่มือ: 24 ไฟ) บนเฟอร์15,480บีทียู เมอร์5 (R32) รุ่น2019-2024
                 </h2>
-                
+
                 <div class="flex items-center gap-2 mb-4">
                     <div class="flex text-yellow-400">
                         <span>⭐⭐⭐⭐⭐</span>
@@ -58,7 +59,7 @@
                 <!-- Product Details -->
                 <div class="border-t pt-4">
                     <h3 class="font-bold text-lg text-gray-900 mb-4">รายละเอียดสินค้า</h3>
-                    
+
                     <div class="text-sm text-gray-700 leading-relaxed space-y-4">
                         <p>
                             "ซัตซูบิชิ เฮฟวี่ ดิวตี้" เซีย่แล้ว กบทาน ประหยัดไฟ รับประกัน
@@ -77,21 +78,32 @@
                         </p>
 
                         <ul class="list-disc pl-5 space-y-2">
-                            <li><strong>Real Inverter อินเวอร์เตอร์แท้จากประเทศ ตำให้ Mitsubishi รอน Heavy Duty ด้วยพิประโดย และกิรมในการใส่รุ่นมิลบุกอก</strong></li>
-                            
+                            <li><strong>Real Inverter อินเวอร์เตอร์แท้จากประเทศ ตำให้ Mitsubishi รอน Heavy Duty ด้วยพิประโดย
+                                    และกิรมในการใส่รุ่นมิลบุกอก</strong></li>
+
                             <li><strong>Fan Speed (ระดับความเร็วพัดลม):</strong> 5 ระดับ</li>
-                            
-                            <li><strong>Jet Flow เทคโนโลยีการกระจายลมอากาศเย่บัดอิจอรระบบ กรอฮลบยด์ใฟไม่ให้ไฮต่อด้วยให้ฟอให้ในเรื่องผลิตภัณฑ์ก่ให้ราชาลังลิงิติดตั้งสินค้า</strong></li>
-                            
-                            <li><strong>Hi Power สามารถกำทาบอย่างต่อเนื่องในในพลังต่างหู ลุงป็นสาน 15 บาที ช่วยให้คุณหูค์กิกีเก็ดิองล์กุมคิม ดมบพิการความสะดวกอี</strong></li>
-                            
-                            <li><strong>24 ชม. ION ดิงอพิการ์ดิ 24 ION สามารถสร้างประร ลนูลองอ 24 ชั่วโมง กำให้ใช้การบนีดาลสดสเธียบ หน้องสำหรับการรรษาดี</strong></li>
-                            
-                            <li><strong>ของงานเคลื่อน Silicone ป้องกันความชื่นเเลนแลอว หนีประเภสมโฟรงจระงาะม #700</strong></li>
-                            
+
+                            <li><strong>Jet Flow เทคโนโลยีการกระจายลมอากาศเย่บัดอิจอรระบบ
+                                    กรอฮลบยด์ใฟไม่ให้ไฮต่อด้วยให้ฟอให้ในเรื่องผลิตภัณฑ์ก่ให้ราชาลังลิงิติดตั้งสินค้า</strong>
+                            </li>
+
+                            <li><strong>Hi Power สามารถกำทาบอย่างต่อเนื่องในในพลังต่างหู ลุงป็นสาน 15 บาที
+                                    ช่วยให้คุณหูค์กิกีเก็ดิองล์กุมคิม ดมบพิการความสะดวกอี</strong></li>
+
+                            <li><strong>24 ชม. ION ดิงอพิการ์ดิ 24 ION สามารถสร้างประร ลนูลองอ 24 ชั่วโมง
+                                    กำให้ใช้การบนีดาลสดสเธียบ หน้องสำหรับการรรษาดี</strong></li>
+
+                            <li><strong>ของงานเคลื่อน Silicone ป้องกันความชื่นเเลนแลอว หนีประเภสมโฟรงจระงาะม #700</strong>
+                            </li>
+
                             <li><strong>Epoxy Coating ป้องกันสารกิดร้อนอากาศพลวา เป็นกรดคิง</strong></li>
-                            
-                            <li><strong>Self Cleaning Operation ฟังก์ชันกำให้ใช้อย่างคิม แก่งใน การควนการบำดให้ในอพดวยหางการแนน โครงบดำ เพื่อป่านฝีพอกบีความดื่มอาจากดะอยธิยต์เส็บปี ยเวรา 2 ชั่วโมง หลัวจากปิดเครื่องหนุ่องได้เป็นโดง Inverter เพราะ Mitsubishi Heavy Duty พัฒนาระบบ ราช ชั่งป์ พารอปดิ กุ่นพรเก่ชื่อยเดียวกันแโคกร หนู่อย ให้สั่งจานอบา้าร์คั่นเสในอนุการเย่อร์อกกียมใจ เเกิดการประย้าดทองจากา Inverter แบบ Mitsubishi Heavy Duty นี้ ประหยาดียนพลังมาะจินญิขิเย่อกิการอกเปอร์</strong></li>
+
+                            <li><strong>Self Cleaning Operation ฟังก์ชันกำให้ใช้อย่างคิม แก่งใน
+                                    การควนการบำดให้ในอพดวยหางการแนน โครงบดำ เพื่อป่านฝีพอกบีความดื่มอาจากดะอยธิยต์เส็บปี
+                                    ยเวรา 2 ชั่วโมง หลัวจากปิดเครื่องหนุ่องได้เป็นโดง Inverter เพราะ Mitsubishi Heavy Duty
+                                    พัฒนาระบบ ราช ชั่งป์ พารอปดิ กุ่นพรเก่ชื่อยเดียวกันแโคกร หนู่อย
+                                    ให้สั่งจานอบา้าร์คั่นเสในอนุการเย่อร์อกกียมใจ เเกิดการประย้าดทองจากา Inverter แบบ
+                                    Mitsubishi Heavy Duty นี้ ประหยาดียนพลังมาะจินญิขิเย่อกิการอกเปอร์</strong></li>
                         </ul>
                     </div>
                 </div>

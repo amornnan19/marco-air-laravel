@@ -27,12 +27,13 @@
                 <div class="relative">
                     <button class="p-2">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M15 17h5l-5 5-5-5h5v-5a7.5 7.5 0 00-15 0v5h5l-5 5-5-5h5V7a9.5 9.5 0 0119 0v10z"></path>
                         </svg>
                     </button>
                     <!-- Notification Badge -->
-                    <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    <div
+                        class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                         2
                     </div>
                 </div>
@@ -44,7 +45,7 @@
             <!-- Promotion Banner -->
             <div class="py-4">
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                    <img src="https://placehold.co/400x200/4F46E5/FFFFFF?text=Promotion+Banner" alt="Promotion" 
+                    <img src="https://placehold.co/400x200/4F46E5/FFFFFF?text=Promotion+Banner" alt="Promotion"
                         class="w-full h-48 object-cover">
                     <div class="absolute bottom-4 left-4 right-4">
                         <!-- Carousel Indicators -->
@@ -115,7 +116,7 @@
                     <!-- Product 1 -->
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
                         onclick="window.location.href='{{ route('product.detail', 1) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
+                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
                             class="w-full h-32 object-cover">
                         <div class="p-3">
                             <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
@@ -128,7 +129,7 @@
                     <!-- Product 2 -->
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
                         onclick="window.location.href='{{ route('product.detail', 2) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
+                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
                             class="w-full h-32 object-cover">
                         <div class="p-3">
                             <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
@@ -141,7 +142,7 @@
                     <!-- Product 3 -->
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
                         onclick="window.location.href='{{ route('product.detail', 3) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
+                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
                             class="w-full h-32 object-cover">
                         <div class="p-3">
                             <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
@@ -154,7 +155,7 @@
                     <!-- Product 4 -->
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
                         onclick="window.location.href='{{ route('product.detail', 4) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
+                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
                             class="w-full h-32 object-cover">
                         <div class="p-3">
                             <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
@@ -167,7 +168,7 @@
                     <!-- Product 5 -->
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
                         onclick="window.location.href='{{ route('product.detail', 5) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
+                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
                             class="w-full h-32 object-cover">
                         <div class="p-3">
                             <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
@@ -180,7 +181,7 @@
                     <!-- Product 6 -->
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
                         onclick="window.location.href='{{ route('product.detail', 6) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
+                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
                             class="w-full h-32 object-cover">
                         <div class="p-3">
                             <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
@@ -193,7 +194,7 @@
                     <!-- Product 7 -->
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
                         onclick="window.location.href='{{ route('product.detail', 7) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
+                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
                             class="w-full h-32 object-cover">
                         <div class="p-3">
                             <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
@@ -206,7 +207,7 @@
                     <!-- Product 8 -->
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
                         onclick="window.location.href='{{ route('product.detail', 8) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
+                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
                             class="w-full h-32 object-cover">
                         <div class="p-3">
                             <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>

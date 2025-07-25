@@ -12,7 +12,7 @@
             </a>
 
             <!-- Product -->
-            <a href="{{ route('products.index') }}" 
+            <a href="{{ route('products.index') }}"
                 class="flex flex-col items-center py-2 px-3 @if (request()->routeIs('products.*')) text-blue-600 @else text-gray-500 @endif">
                 <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
