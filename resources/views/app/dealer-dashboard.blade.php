@@ -33,7 +33,7 @@
                 </div>
                 
                 <!-- Search Bar -->
-                <div class="relative">
+                <div class="relative bg-white">
                     <input type="text" placeholder="รหัสสั่งซื้อ/สั่งงาน" 
                         class="w-full px-4 py-3 pr-12 rounded-lg text-gray-900 placeholder-gray-500">
                     <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
