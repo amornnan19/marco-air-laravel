@@ -19,6 +19,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->bootInertiaShares();
+    }
+
+    /**
+     * Bootstrap for Socialite providers.
+     */
+    protected function bootInertiaShares(): void
+    {
+        // Add event listener for LINE socialite provider
+        \Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
+            $event->extendSocialite('line', \SocialiteProviders\Line\Provider::class);
+        });
     }
 }
