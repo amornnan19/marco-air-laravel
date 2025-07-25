@@ -66,6 +66,22 @@ Route::get('/promotion/{promotion}', 'App\Http\Controllers\DashboardController@s
     ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
     ->name('promotion.show');
 
+// Admin Authentication Routes (No middleware)
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/login', 'App\Http\Controllers\Admin\AuthController@showLoginForm')->name('login');
+    Route::post('/login', 'App\Http\Controllers\Admin\AuthController@login')->name('login.submit');
+    Route::post('/logout', 'App\Http\Controllers\Admin\AuthController@logout')->name('logout');
+});
+
+// Admin Routes (Role-based access)
+Route::prefix('admin')->name('admin.')->middleware(['auth', \App\Http\Middleware\EnsureRole::class . ':admin'])->group(function () {
+    // Admin Dashboard
+    Route::get('/', 'App\Http\Controllers\Admin\DashboardController@index')->name('dashboard');
+    
+    // Promotion Management
+    Route::resource('promotions', 'App\Http\Controllers\Admin\PromotionController');
+});
+
 // Logout route
 Route::post('/logout', function () {
     Auth::logout();

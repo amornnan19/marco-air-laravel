@@ -30,6 +30,8 @@ class User extends Authenticatable
         'terms_accepted_at',
         'marketing_consent',
         'data_sharing_consent',
+        'is_admin',
+        'role',
     ];
 
     /**
@@ -56,6 +58,33 @@ class User extends Authenticatable
             'terms_accepted_at' => 'datetime',
             'marketing_consent' => 'boolean',
             'data_sharing_consent' => 'boolean',
+            'is_admin' => 'boolean',
         ];
+    }
+
+    // Role helper methods
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin' || $this->is_admin;
+    }
+
+    public function isDealer(): bool
+    {
+        return $this->role === 'dealer';
+    }
+
+    public function isCustomer(): bool
+    {
+        return $this->role === 'customer';
+    }
+
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+    }
+
+    public function hasAnyRole(array $roles): bool
+    {
+        return in_array($this->role, $roles);
     }
 }
