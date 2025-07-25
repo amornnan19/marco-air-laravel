@@ -17,7 +17,7 @@
         </div>
 
         <!-- Main Content -->
-        <main class="flex-1 px-4 py-6 overflow-y-auto bg-gray-50">
+        <main class="flex-1 px-4 py-6 overflow-y-auto bg-gray-50 mb-10">
             <!-- Customer Info Card -->
             <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
                 <h2 class="font-bold text-lg text-gray-900 mb-4">ข้อมูลติดต่อลูกค้า</h2>
