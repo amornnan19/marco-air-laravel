@@ -125,6 +125,9 @@
                     <p><strong>Dealer:</strong> dealer@marcoair.com / password</p>
                     <p><strong>Customer:</strong> customer@marcoair.com / password</p>
                 </div>
+                <div class="mt-2 pt-2 border-t border-gray-300">
+                    <p class="text-xs text-gray-500">URL: /control-panel/login</p>
+                </div>
             </div>
         </div>
     </div>

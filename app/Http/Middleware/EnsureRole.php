@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class EnsureRole
@@ -16,15 +17,15 @@ class EnsureRole
      */
     public function handle(Request $request, Closure $next, string $role): Response
     {
-        if (!auth()->check()) {
+        if (!Auth::check()) {
             // If accessing admin routes, redirect to admin login
-            if ($request->is('admin/*')) {
+            if ($request->is('control-panel/*')) {
                 return redirect()->route('admin.login');
             }
             return redirect()->route('login');
         }
 
-        $user = auth()->user();
+        $user = Auth::user();
 
         // Check if user has the required role
         if (!$user->hasRole($role)) {
