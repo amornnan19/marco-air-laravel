@@ -239,17 +239,80 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
   - `dashboard.blade.php` - Admin dashboard
   - `promotions/` - Promotion CRUD views
   - `articles/` - Article CRUD views (index, create, edit, show)
+  - `users/` - User management views (index, edit)
 
-### Future Development
-- [ ] Create promotion analytics and click tracking
-- [ ] Add promotion categories/tags system
-- [ ] Implement A/B testing for promotions
-- [ ] Add user management interface
-- [ ] Create service booking management
-- [ ] Add reporting and analytics dashboard
-- [ ] Implement article search functionality
-- [ ] Add article comment system
-- [ ] Create article archive/pagination for dashboard
-- [ ] Add article tags system
-- [ ] Implement article analytics (most read, popular categories)
-- [ ] Add article export/import functionality
+## Dealer System
+
+### Dealer Dashboard
+- **Route**: `/dealer-dashboard` - Protected route for dealers only
+- **Features**: Order cards with filter pills, search functionality, status indicators
+- **Navigation**: Separate dealer bottom navigation with 3 buttons (หน้าหลัก, สถานะงาน, โปรไฟล์)
+
+### Order Management
+- **Order Detail Page**: `/order/{orderId}` - Individual order details for dealers
+- **Features**: Customer information, service details, appointment scheduling, contact information
+- **Layout**: Full-width design without mobile constraints
+
+### Dealer Directory Structure
+- `resources/views/app/dealer-dashboard.blade.php` - Dealer main dashboard
+- `resources/views/app/order-detail.blade.php` - Order detail page
+- `resources/views/components/dealer-bottom-navigation.blade.php` - Dealer navigation component
+
+## Products System
+
+### Customer Products Pages
+- **Products Listing**: `/products` - Product catalog with banner and category filters
+- **Product Detail**: `/product/{productId}` - Individual product information page
+- **Features**: Product grid, promotional banners, service category icons, ratings, specifications
+
+### Product Features Implemented
+- **Product Catalog**: 2-column grid layout with product cards
+- **Product Detail**: Complete product information with images, ratings, specifications, and purchase button
+- **Navigation Integration**: Clickable product cards with route navigation
+- **Responsive Design**: Mobile-optimized layout with proper spacing
+
+### Product Directory Structure
+- `resources/views/app/products.blade.php` - Product listing page
+- `resources/views/app/product-detail.blade.php` - Product detail page
+- Controller methods in `DashboardController`: `products()`, `productDetail($productId)`
+
+## Font System
+- **Global Font**: LINE Seed Sans TH applied across entire application
+- **Implementation**: Google Fonts integration in `resources/css/app.css`
+- **Coverage**: All Thai and English text throughout the application
+
+
+## Products System Database Design (Pending Implementation)
+
+### Planned Database Schema
+**Products Table**: Based on mockup analysis from products and product-detail pages
+- **Basic Information**:
+  - `id` - Primary key
+  - `name` - Product name (e.g., "Tanin", "Mitsubishi Heavy Duty")
+  - `model` - Product model (e.g., "T T 4455", "DXK15YW-W1")
+  - `brand` - Brand name (Mitsubishi, Tanin, etc.)
+  - `btu` - BTU capacity (e.g., "12,000 Btu", "15,480 BTU")
+  - `price` - Product price (decimal)
+  - `image` - Product image path
+
+- **Detailed Information**:
+  - `description` - Long product description (LONGTEXT)
+  - `features` - Product features (JSON format)
+  - `specifications` - Technical specifications (JSON format)
+  - `category` - Product category
+  - `rating` - Average rating (decimal 0-5)
+  - `review_count` - Number of reviews
+
+- **Status & Management**:
+  - `is_active` - Active/inactive status
+  - `is_featured` - Featured product flag
+  - `sort_order` - Display order
+  - `created_at`, `updated_at` - Timestamps
+
+### Implementation Tasks (To Do)
+- [ ] Create products migration with complete schema
+- [ ] Create Product model with relationships and scopes
+- [ ] Create ProductSeeder with sample data matching mockup
+- [ ] Update DashboardController to use real product data instead of mockup
+- [ ] Add product image upload functionality for admin
+- [ ] Create admin product management interface
