@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Promotion;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function index()
     {
         // Check user role and redirect to appropriate dashboard
-        $user = auth()->user();
-        
+        $user = Auth::user();
+
         if ($user->role === 'dealer') {
             return $this->dealerDashboard();
         }
-        
+
         // Default customer dashboard
         $promotions = Promotion::active()
             ->current()
