@@ -53,4 +53,14 @@ class DashboardController extends Controller
 
         return view('app.articles', compact('articles'));
     }
+
+    public function promotions()
+    {
+        $promotions = Promotion::active()
+            ->current()
+            ->ordered()
+            ->paginate(10);
+
+        return view('app.promotions', compact('promotions'));
+    }
 }

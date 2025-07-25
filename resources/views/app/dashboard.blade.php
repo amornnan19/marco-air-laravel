@@ -34,7 +34,7 @@
             <div class="py-4">
                 <div class="flex items-center justify-between mb-3">
                     <h3 class="text-lg font-bold text-gray-900">ข้อเสนอพิเศษ</h3>
-                    <a href="#" class="text-blue-600 text-sm font-medium">ดูทั้งหมด</a>
+                    <a href="{{ route('promotions.index') }}" class="text-blue-600 text-sm font-medium">ดูทั้งหมด</a>
                 </div>
 
                 <!-- Promotion Carousel -->
