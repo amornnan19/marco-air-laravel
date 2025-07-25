@@ -91,4 +91,11 @@ class DashboardController extends Controller
         // Later this will fetch actual product data from database
         return view('app.products');
     }
+
+    public function productDetail($productId)
+    {
+        // For now, just return the mockup view
+        // Later this will fetch actual product data from database
+        return view('app.product-detail', compact('productId'));
+    }
 }

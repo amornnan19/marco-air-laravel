@@ -113,7 +113,8 @@
             <div class="py-4">
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Product 1 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                        onclick="window.location.href='{{ route('product.detail', 1) }}'">
                         <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
                             class="w-full h-32 object-cover">
                         <div class="p-3">
@@ -125,7 +126,8 @@
                     </div>
 
                     <!-- Product 2 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                        onclick="window.location.href='{{ route('product.detail', 2) }}'">
                         <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
                             class="w-full h-32 object-cover">
                         <div class="p-3">
@@ -137,7 +139,8 @@
                     </div>
 
                     <!-- Product 3 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                        onclick="window.location.href='{{ route('product.detail', 3) }}'">
                         <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
                             class="w-full h-32 object-cover">
                         <div class="p-3">
@@ -149,7 +152,8 @@
                     </div>
 
                     <!-- Product 4 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                        onclick="window.location.href='{{ route('product.detail', 4) }}'">
                         <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
                             class="w-full h-32 object-cover">
                         <div class="p-3">
@@ -161,7 +165,8 @@
                     </div>
 
                     <!-- Product 5 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                        onclick="window.location.href='{{ route('product.detail', 5) }}'">
                         <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
                             class="w-full h-32 object-cover">
                         <div class="p-3">
@@ -173,7 +178,8 @@
                     </div>
 
                     <!-- Product 6 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                        onclick="window.location.href='{{ route('product.detail', 6) }}'">
                         <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
                             class="w-full h-32 object-cover">
                         <div class="p-3">
@@ -185,7 +191,8 @@
                     </div>
 
                     <!-- Product 7 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                        onclick="window.location.href='{{ route('product.detail', 7) }}'">
                         <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
                             class="w-full h-32 object-cover">
                         <div class="p-3">
@@ -197,7 +204,8 @@
                     </div>
 
                     <!-- Product 8 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                        onclick="window.location.href='{{ route('product.detail', 8) }}'">
                         <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC" 
                             class="w-full h-32 object-cover">
                         <div class="p-3">
