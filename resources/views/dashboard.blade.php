@@ -24,12 +24,13 @@
                 </div>
             </div>
             <div class="relative">
-                <button class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 17h5l-5 5h5m-5-5l5-5m-5 5H9a7 7 0 01-7-7V9a7 7 0 017-7h6"></path>
-                    </svg>
-                </button>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit"
+                        class="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                        Logout
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -63,7 +64,7 @@
                                     </div>
                                 </div>
                             @endif
-                            
+
                             @if ($promotion->image_path)
                             <!-- Overlay for better text readability -->
                             <div class="absolute inset-0 bg-black/20"></div>
