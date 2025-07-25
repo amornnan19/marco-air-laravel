@@ -98,6 +98,9 @@ Route::prefix('control-panel')->name('admin.')->middleware(['auth', \App\Http\Mi
 
     // Article Management
     Route::resource('articles', 'App\Http\Controllers\Admin\ArticleController');
+
+    // User Management
+    Route::resource('users', 'App\Http\Controllers\Admin\UserController')->except(['create', 'store', 'show']);
 });
 
 // Logout route

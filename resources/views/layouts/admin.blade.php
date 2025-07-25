@@ -44,6 +44,13 @@
                                       text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 @endif">
                             บทความ
                         </a>
+                        <a href="{{ route('admin.users.index') }}"
+                            class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium
+                                  @if (request()->routeIs('admin.users.*')) text-blue-600 border-blue-600 
+                                  @else 
+                                      text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 @endif">
+                            ผู้ใช้
+                        </a>
                     </nav>
                 </div>
 

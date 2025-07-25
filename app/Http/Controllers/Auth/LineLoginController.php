@@ -36,6 +36,7 @@ class LineLoginController extends Controller
                     'email' => $lineUser->getEmail() ?? $lineUser->getId().'@line.local',
                     'line_id' => $lineUser->getId(),
                     'line_avatar' => $lineUser->getAvatar(),
+                    'role' => 'customer', // Default role for LINE login users
                     'password' => Hash::make(Str::random(24)), // Random password since we use LINE auth
                 ]);
             } else {
