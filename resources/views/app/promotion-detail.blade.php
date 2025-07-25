@@ -3,21 +3,21 @@
 @section('title', $promotion->title . ' - Marco Air')
 
 @section('content')
-
-    <!-- Header with Back Button -->
-    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4">
-        <div class="max-w-sm mx-auto flex items-center gap-3">
-            <button onclick="history.back()" class="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            <h1 class="font-bold text-lg">{{ $promotion->title }}</h1>
+    <div class="flex flex-col h-full">
+        <!-- Header with Back Button -->
+        <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4">
+            <div class="max-w-md mx-auto flex items-center gap-3">
+                <button onclick="history.back()" class="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <h1 class="font-bold text-lg">{{ $promotion->title }}</h1>
+            </div>
         </div>
-    </div>
 
-    <!-- Main Content -->
-    <main class="max-w-sm mx-auto px-4 py-6">
+        <!-- Main Content -->
+        <main class="flex-1 max-w-md mx-auto px-4 py-6 overflow-y-auto">
         <!-- Promotion Banner -->
         <div
             class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white mb-6 relative overflow-hidden">
@@ -65,7 +65,8 @@
                 </a>
             @endif
         </div>
-    </main>
+        </main>
+    </div>
 
     <script>
         function sharePromotion() {

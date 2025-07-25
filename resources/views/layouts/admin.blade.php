@@ -22,11 +22,21 @@
                     </div>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
                         <a href="{{ route('admin.dashboard') }}" 
-                           class="@if(request()->routeIs('admin.dashboard')) text-blue-600 border-blue-600 @else text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                           class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium
+                                  @if(request()->routeIs('admin.dashboard')) 
+                                      text-blue-600 border-blue-600 
+                                  @else 
+                                      text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 
+                                  @endif">
                             แดชบอร์ด
                         </a>
                         <a href="{{ route('admin.promotions.index') }}" 
-                           class="@if(request()->routeIs('admin.promotions.*')) text-blue-600 border-blue-600 @else text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 @endif inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                           class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium
+                                  @if(request()->routeIs('admin.promotions.*')) 
+                                      text-blue-600 border-blue-600 
+                                  @else 
+                                      text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 
+                                  @endif">
                             โปรโมชัน
                         </a>
                     </nav>

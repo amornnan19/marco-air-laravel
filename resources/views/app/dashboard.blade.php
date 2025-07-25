@@ -3,31 +3,32 @@
 @section('title', 'Dashboard - Marco Air')
 
 @section('content')
-    <!-- User Header -->
-    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4">
-        <div class="max-w-sm mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                @if (auth()->user()->line_avatar)
-                    <img src="{{ auth()->user()->line_avatar }}" alt="Profile"
-                        class="w-12 h-12 rounded-full border-2 border-white/20">
-                @else
-                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
+    <div class="flex flex-col h-full">
+        <!-- User Header -->
+        <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4">
+            <div class="max-w-md mx-auto flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    @if (auth()->user()->line_avatar)
+                        <img src="{{ auth()->user()->line_avatar }}" alt="Profile"
+                            class="w-12 h-12 rounded-full border-2 border-white/20">
+                    @else
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                    @endif
+                    <div>
+                        <h1 class="font-bold text-lg">สวัสดีคุณ {{ auth()->user()->first_name ?? auth()->user()->name }}</h1>
+                        <h2 class="text-white/80 text-sm">{{ auth()->user()->name }}</h2>
                     </div>
-                @endif
-                <div>
-                    <h1 class="font-bold text-lg">สวัสดีคุณ {{ auth()->user()->first_name ?? auth()->user()->name }}</h1>
-                    <h2 class="text-white/80 text-sm">{{ auth()->user()->name }}</h2>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Main Content -->
-    <main class="max-w-sm mx-auto px-4 pb-20">
+        <!-- Main Content -->
+        <main class="flex-1 max-w-md mx-auto px-4 pb-20 overflow-y-auto">
         <!-- Special Offers Section -->
         <div class="py-4">
             <div class="flex items-center justify-between mb-3">
@@ -36,7 +37,7 @@
             </div>
 
             <!-- Promotion Carousel -->
-            <div class="overflow-x-auto scrollbar-hide">
+            <div id="promotion-carousel" class="overflow-x-auto scrollbar-hide cursor-grab">
                 <div class="flex gap-4 w-max">
                     @forelse($promotions as $promotion)
                         <div class="rounded-lg w-72 h-48 relative overflow-hidden cursor-pointer shadow-lg"
@@ -225,8 +226,80 @@
                 </div>
             </div>
         </div>
-    </main>
+        </main>
 
-    <!-- Sticky Bottom Navigation -->
-    @include('components.sticky-bottom-navigation')
+        <!-- Sticky Bottom Navigation -->
+        @include('components.sticky-bottom-navigation')
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('promotion-carousel');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            // Mouse drag functionality
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.classList.add('cursor-grabbing');
+                carousel.classList.remove('cursor-grab');
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+                e.preventDefault();
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.classList.remove('cursor-grabbing');
+                carousel.classList.add('cursor-grab');
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.classList.remove('cursor-grabbing');
+                carousel.classList.add('cursor-grab');
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+
+            // Mouse wheel support
+            carousel.addEventListener('wheel', (e) => {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    carousel.scrollLeft += e.deltaY;
+                }
+            });
+
+            // Prevent click events when dragging
+            let isDragging = false;
+            carousel.addEventListener('mousedown', () => {
+                isDragging = false;
+            });
+
+            carousel.addEventListener('mousemove', () => {
+                isDragging = true;
+            });
+
+            // Modify promotion card clicks to prevent navigation when dragging
+            const promotionCards = carousel.querySelectorAll('[onclick]');
+            promotionCards.forEach(card => {
+                const originalOnclick = card.getAttribute('onclick');
+                card.removeAttribute('onclick');
+                
+                card.addEventListener('click', (e) => {
+                    if (!isDragging) {
+                        eval(originalOnclick);
+                    }
+                    isDragging = false;
+                });
+            });
+        });
+    </script>
 @endsection
