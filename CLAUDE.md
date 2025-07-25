@@ -159,17 +159,18 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 ## Promotion System
 
 ### Database Schema
-- **Promotions Table**: id, title, content, image_path, link_url, button_text, is_active, start_date, end_date, sort_order, background_color, timestamps
+- **Promotions Table**: id, title, content, image_path, link_url, button_text, is_active, start_date, end_date, sort_order, timestamps
 
 ### Features Implemented
 - Dynamic promotion carousel on dashboard
 - Active/inactive status management
 - Date-based promotion scheduling (start_date/end_date)
 - Sort ordering for promotion display
-- Customizable background colors and button text
+- Customizable button text and content
 - WYSIWYG content support ready
 - Model scopes for filtering active and current promotions
 - Individual promotion detail pages with full content display
+- Consistent blue gradient design theme
 
 ### TODO: Admin Features (Future Development)
 - [ ] Create admin panel for CRUD operations on promotions

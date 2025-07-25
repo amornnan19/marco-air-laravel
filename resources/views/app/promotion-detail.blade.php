@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- Header with Back Button -->
-    <div class="bg-gradient-to-r {{ $promotion->background_color }} text-white p-4">
+    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4">
         <div class="max-w-sm mx-auto flex items-center gap-3">
             <button onclick="history.back()" class="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -20,7 +20,7 @@
     <main class="max-w-sm mx-auto px-4 py-6">
         <!-- Promotion Banner -->
         <div
-            class="bg-gradient-to-r {{ $promotion->background_color }} rounded-lg p-6 text-white mb-6 relative overflow-hidden">
+            class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white mb-6 relative overflow-hidden">
             @if ($promotion->image_path)
                 <img src="{{ $promotion->image_path }}" alt="{{ $promotion->title }}"
                     class="w-full h-48 object-cover rounded-lg mb-4">
@@ -60,7 +60,7 @@
         <div class="space-y-3">
             @if ($promotion->link_url && $promotion->link_url !== '#')
                 <a href="{{ $promotion->link_url }}" target="_blank"
-                    class="w-full bg-gradient-to-r {{ $promotion->background_color }} text-white font-medium py-3 px-4 rounded-lg text-center block hover:opacity-90 transition-opacity">
+                    class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium py-3 px-4 rounded-lg text-center block hover:opacity-90 transition-opacity">
                     {{ $promotion->button_text }}
                 </a>
             @endif

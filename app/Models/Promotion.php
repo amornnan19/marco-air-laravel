@@ -17,8 +17,7 @@ class Promotion extends Model
         'is_active',
         'start_date',
         'end_date',
-        'sort_order',
-        'background_color'
+        'sort_order'
     ];
 
     protected $casts = [

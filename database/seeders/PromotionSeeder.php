@@ -24,8 +24,7 @@ class PromotionSeeder extends Seeder
                 'is_active' => true,
                 'start_date' => Carbon::now()->subDays(7),
                 'end_date' => Carbon::now()->addDays(30),
-                'sort_order' => 1,
-                'background_color' => 'from-orange-400 to-orange-500'
+                'sort_order' => 1
             ],
             [
                 'title' => 'แอร์ไส่เซร์วิส',
@@ -36,8 +35,7 @@ class PromotionSeeder extends Seeder
                 'is_active' => true,
                 'start_date' => Carbon::now()->subDays(3),
                 'end_date' => Carbon::now()->addDays(60),
-                'sort_order' => 2,
-                'background_color' => 'from-red-400 to-red-500'
+                'sort_order' => 2
             ],
             [
                 'title' => 'ล้างแอร์ประหยัด 50%',
@@ -48,8 +46,7 @@ class PromotionSeeder extends Seeder
                 'is_active' => true,
                 'start_date' => Carbon::now(),
                 'end_date' => Carbon::now()->addDays(45),
-                'sort_order' => 3,
-                'background_color' => 'from-blue-400 to-blue-500'
+                'sort_order' => 3
             ]
         ];
 

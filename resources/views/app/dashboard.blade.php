@@ -47,7 +47,7 @@
                             @else
                                 <!-- Fallback gradient if no image -->
                                 <div
-                                    class="w-full h-full bg-gradient-to-r {{ $promotion->background_color }} flex items-center justify-center">
+                                    class="w-full h-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
                                     <div class="text-center text-white">
                                         <h4 class="font-bold text-lg mb-2">{{ $promotion->title }}</h4>
                                         <p class="text-white/80 text-sm">
