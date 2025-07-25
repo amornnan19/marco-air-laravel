@@ -88,10 +88,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Middleware System
 - **EnsureProfileComplete** - Enforces profile completion and terms acceptance
+- **EnsureRole** - Role-based authorization for admin/dealer/customer access
 - **Smart Routing** - Root URL automatically redirects authenticated users to appropriate step
 
 ### Database Schema
-- **Users Table Fields**: name, email, line_id, line_avatar, first_name, last_name, phone, terms_accepted, terms_accepted_at, marketing_consent, data_sharing_consent
+- **Users Table Fields**: name, email, line_id, line_avatar, first_name, last_name, phone, terms_accepted, terms_accepted_at, marketing_consent, data_sharing_consent, role (enum: customer, dealer, admin), is_admin (boolean backup)
 
 ## View Architecture
 
@@ -117,8 +118,8 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 
 ### Responsive Design Features
 - **Mobile-First Approach**: Optimized for mobile devices primarily
-- **Desktop Phone Simulation**: 375x812px frame with realistic bezels and shadows
-- **Automatic Breakpoint Detection**: `sm` breakpoint (640px) switches between modes
+- **Desktop Phone Simulation**: 420x900px frame with realistic bezels and shadows
+- **Automatic Breakpoint Detection**: `md` breakpoint (768px) switches between modes
 - **Policy Page Exception**: Legal pages use full desktop width for better readability
 - **Consistent UI Patterns**: Unified experience across all devices
 
@@ -159,24 +160,51 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 ## Promotion System
 
 ### Database Schema
-- **Promotions Table**: id, title, content, image_path, link_url, button_text, is_active, start_date, end_date, sort_order, timestamps
+- **Promotions Table**: id, title, content, image, link_url, button_text, is_active, start_date, end_date, sort_order, timestamps
 
 ### Features Implemented
-- Dynamic promotion carousel on dashboard
+- Dynamic promotion carousel on dashboard with drag/wheel support
 - Active/inactive status management
 - Date-based promotion scheduling (start_date/end_date)
-- Sort ordering for promotion display
+- Sort ordering for promotion display with auto-calculation
 - Customizable button text and content
-- WYSIWYG content support ready
+- Quill.js WYSIWYG editor for content creation
 - Model scopes for filtering active and current promotions
 - Individual promotion detail pages with full content display
+- File upload system for promotion images with Storage integration
 - Consistent blue gradient design theme
 
-### TODO: Admin Features (Future Development)
-- [ ] Create admin panel for CRUD operations on promotions
-- [ ] Implement image upload functionality for promotion banners
-- [ ] Add WYSIWYG editor integration for promotion content
+## Admin Panel System
+
+### Authentication & Authorization
+- **Admin Login**: Separate login system at `/control-panel/login`
+- **Role-Based Access**: customer/dealer/admin roles with middleware protection
+- **Security**: Obscured admin URL for enhanced security
+
+### Admin Features Implemented
+- **Dashboard**: Overview of system statistics
+- **Promotion Management**: Full CRUD operations
+  - Create/Edit/Delete promotions
+  - Rich text editor (Quill.js) integration
+  - File upload for promotion images
+  - Auto sort order calculation
+  - Active/inactive status control
+  - Date-based scheduling
+- **Responsive Design**: Works on both desktop and mobile
+- **Thai Language Support**: All admin interfaces in Thai
+
+### Admin Directory Structure
+- `app/Http/Controllers/Admin/` - Admin controllers
+- `app/Http/Middleware/EnsureRole.php` - Role-based authorization
+- `resources/views/admin/` - Admin blade templates
+  - `auth/login.blade.php` - Admin login page
+  - `dashboard.blade.php` - Admin dashboard
+  - `promotions/` - Promotion CRUD views
+
+### Future Development
 - [ ] Create promotion analytics and click tracking
 - [ ] Add promotion categories/tags system
 - [ ] Implement A/B testing for promotions
-- [ ] Add promotion scheduling with automatic activation/deactivation
+- [ ] Add user management interface
+- [ ] Create service booking management
+- [ ] Add reporting and analytics dashboard
