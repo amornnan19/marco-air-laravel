@@ -25,10 +25,10 @@
                 <div class="space-y-3">
                     <div class="flex justify-between">
                         <span class="text-gray-600">ชื่อ-นามสกุล</span>
-                        <span class="font-medium text-gray-900">หมายเลขไกร์ศพท์</span>
+                        <span class="font-medium text-gray-900">ศักดา ทุนดิษ</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-gray-600">ศักดา ทุนดิษ</span>
+                        <span class="text-gray-600">หมายเลขโกร์ศพท์</span>
                         <span class="font-medium text-gray-900">056 567 7890</span>
                     </div>
                     <div class="flex justify-between">
