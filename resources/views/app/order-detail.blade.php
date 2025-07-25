@@ -6,7 +6,7 @@
     <div class="flex flex-col h-full">
         <!-- Header -->
         <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4">
-            <div class="max-w-md mx-auto flex items-center gap-3">
+            <div class="flex items-center gap-3">
                 <button onclick="history.back()" class="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
@@ -17,7 +17,7 @@
         </div>
 
         <!-- Main Content -->
-        <main class="flex-1 max-w-md mx-auto px-4 py-6 overflow-y-auto bg-gray-50">
+        <main class="flex-1 px-4 py-6 overflow-y-auto bg-gray-50">
             <!-- Customer Info Card -->
             <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
                 <h2 class="font-bold text-lg text-gray-900 mb-4">ข้อมูลติดต่อลูกค้า</h2>
