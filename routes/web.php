@@ -66,6 +66,11 @@ Route::get('/promotion/{promotion}', 'App\Http\Controllers\DashboardController@s
     ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
     ->name('promotion.show');
 
+// Article detail (protected route)
+Route::get('/article/{article}', 'App\Http\Controllers\DashboardController@showArticle')
+    ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
+    ->name('article.show');
+
 // Admin Authentication Routes (No middleware)
 Route::prefix('control-panel')->name('admin.')->group(function () {
     Route::get('/login', 'App\Http\Controllers\Admin\AuthController@showLoginForm')->name('login');
@@ -80,6 +85,9 @@ Route::prefix('control-panel')->name('admin.')->middleware(['auth', \App\Http\Mi
 
     // Promotion Management
     Route::resource('promotions', 'App\Http\Controllers\Admin\PromotionController');
+    
+    // Article Management
+    Route::resource('articles', 'App\Http\Controllers\Admin\ArticleController');
 });
 
 // Logout route

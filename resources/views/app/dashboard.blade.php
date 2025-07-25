@@ -192,42 +192,58 @@
                 </div>
 
                 <div class="space-y-4">
-                    <!-- Article 1 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <div class="p-4">
-                            <div class="flex gap-3">
-                                <div
-                                    class="w-20 h-20 bg-blue-500 rounded-lg flex-shrink-0 flex items-center justify-center">
-                                    <span class="text-white font-bold text-lg">7</span>
-                                    <span class="text-white text-xs ml-1">สิ่งของ<br>ที่ได้เกียดไ้</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-semibold text-gray-900 mb-2">7 สิ่งของที่ได้เลยจากการล้างแอร์</h4>
-                                    <p class="text-gray-600 text-sm line-clamp-2">
-                                        ทำความสะอาดแอร์เป็นประจำจะช่วยให้แอร์ใช้งานได้นานขึ้น และประหยัดค่าไฟ</p>
+                    @forelse($articles as $article)
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                            onclick="window.location.href='{{ route('article.show', $article) }}'">
+                            <div class="p-4">
+                                <div class="flex gap-3">
+                                    @if ($article->image)
+                                        <div class="w-20 h-20 flex-shrink-0">
+                                            <img src="{{ $article->image_url }}" alt="{{ $article->title }}"
+                                                class="w-full h-full object-cover rounded-lg">
+                                        </div>
+                                    @else
+                                        <div
+                                            class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex-shrink-0 flex items-center justify-center">
+                                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    @endif
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900 mb-2">{{ $article->title }}</h4>
+                                        <p class="text-gray-600 text-sm line-clamp-2">
+                                            {{ $article->excerpt ?: Str::limit(strip_tags($article->content), 100) }}
+                                        </p>
+                                        <div class="flex items-center mt-2 text-xs text-gray-500 space-x-3">
+                                            @if ($article->category)
+                                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                                                    {{ $article->category }}
+                                                </span>
+                                            @endif
+                                            @if ($article->reading_time)
+                                                <span>อ่าน {{ $article->reading_time }} นาที</span>
+                                            @endif
+                                            <span>{{ number_format($article->views_count) }} ครั้ง</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Article 2 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <div class="p-4">
-                            <div class="flex gap-3">
-                                <div
-                                    class="w-20 h-20 bg-orange-500 rounded-lg flex-shrink-0 flex items-center justify-center">
-                                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                                    </svg>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-semibold text-gray-900 mb-2">แอร์ไส่เซร์วิส</h4>
-                                    <p class="text-gray-600 text-sm line-clamp-2">บทพืนมิร่งมิร่างไว้</p>
-                                </div>
-                            </div>
+                    @empty
+                        <div class="bg-white rounded-lg shadow-sm p-6 text-center text-gray-500">
+                            <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                </path>
+                            </svg>
+                            <p>ยังไม่มีบทความ</p>
                         </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </main>

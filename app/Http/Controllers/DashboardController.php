@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Promotion;
+use App\Models\Article;
 
 class DashboardController extends Controller
 {
@@ -13,7 +14,12 @@ class DashboardController extends Controller
             ->ordered()
             ->get();
 
-        return view('app.dashboard', compact('promotions'));
+        $articles = Article::published()
+            ->ordered()
+            ->limit(6)
+            ->get();
+
+        return view('app.dashboard', compact('promotions', 'articles'));
     }
 
     public function showPromotion(Promotion $promotion)
@@ -24,5 +30,18 @@ class DashboardController extends Controller
         }
 
         return view('app.promotion-detail', compact('promotion'));
+    }
+
+    public function showArticle(Article $article)
+    {
+        // Check if article is published
+        if (! $article->isPublished()) {
+            abort(404);
+        }
+
+        // Increment views count
+        $article->incrementViews();
+
+        return view('app.article-detail', compact('article'));
     }
 }
