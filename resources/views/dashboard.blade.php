@@ -23,15 +23,6 @@
                     <h2 class="text-white/80 text-sm">{{ auth()->user()->name }}</h2>
                 </div>
             </div>
-            <div class="relative">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit"
-                        class="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
-                        Logout
-                    </button>
-                </form>
-            </div>
         </div>
     </div>
 
@@ -66,8 +57,8 @@
                             @endif
 
                             @if ($promotion->image_path)
-                            <!-- Overlay for better text readability -->
-                            <div class="absolute inset-0 bg-black/20"></div>
+                                <!-- Overlay for better text readability -->
+                                <div class="absolute inset-0 bg-black/20"></div>
                                 <!-- Title overlay -->
                                 <div
                                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
@@ -279,13 +270,16 @@
                 </a>
 
                 <!-- Profile -->
-                <a href="#" class="flex flex-col items-center py-2 px-3 text-gray-500">
-                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                    <span class="text-xs">โปรไฟล์</span>
-                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="flex flex-col items-center py-2 px-3 text-gray-500">
+                        <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span class="text-xs">โปรไฟล์</span>
+                        </a>
+                </form>
             </div>
         </div>
     </nav>
