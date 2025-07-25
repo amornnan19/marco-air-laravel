@@ -43,29 +43,27 @@
             <!-- Promotion Carousel -->
             <div class="overflow-x-auto scrollbar-hide">
                 <div class="flex gap-4 w-max">
-                    <!-- Promotion 1 -->
-                    <div class="bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg p-4 w-72 text-white relative overflow-hidden">
-                        <div class="relative z-10">
-                            <h4 class="font-bold text-lg mb-2">ซ่อมแอร์ 7 สิ่งจ่าง</h4>
-                            <p class="text-orange-100 text-sm mb-3">ราคาใดทดสอบ</p>
-                            <button class="bg-white text-orange-500 font-medium px-4 py-2 rounded-lg text-sm">
-                                ดูรายละเอียด
-                            </button>
+                    @forelse($promotions as $promotion)
+                        <div class="bg-gradient-to-r {{ $promotion->background_color }} rounded-lg p-4 w-72 text-white relative overflow-hidden cursor-pointer"
+                             onclick="window.location.href='{{ route('promotion.show', $promotion) }}'">
+                            <div class="relative z-10">
+                                <h4 class="font-bold text-lg mb-2">{{ $promotion->title }}</h4>
+                                <p class="text-white/80 text-sm mb-3 line-clamp-2">{{ Str::limit(strip_tags($promotion->content), 60) }}</p>
+                                <button class="bg-white text-gray-700 font-medium px-4 py-2 rounded-lg text-sm hover:bg-gray-100 transition-colors">
+                                    ดูรายละเอียด
+                                </button>
+                            </div>
+                            <div class="absolute right-0 top-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12"></div>
+                            <div class="absolute right-0 bottom-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mb-10"></div>
                         </div>
-                        <div class="absolute right-0 top-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12"></div>
-                    </div>
-                    
-                    <!-- Promotion 2 -->
-                    <div class="bg-gradient-to-r from-red-400 to-red-500 rounded-lg p-4 w-72 text-white relative overflow-hidden">
-                        <div class="relative z-10">
-                            <h4 class="font-bold text-lg mb-2">แอร์ใสเซร์วิส</h4>
-                            <p class="text-red-100 text-sm mb-3">บริการหน้านิยม</p>
-                            <button class="bg-white text-red-500 font-medium px-4 py-2 rounded-lg text-sm">
-                                สั่งเลย
-                            </button>
+                    @empty
+                        <div class="bg-gradient-to-r from-gray-400 to-gray-500 rounded-lg p-4 w-72 text-white relative overflow-hidden">
+                            <div class="relative z-10">
+                                <h4 class="font-bold text-lg mb-2">ไม่มีโปรโมชั่น</h4>
+                                <p class="text-white/80 text-sm mb-3">ขณะนี้ยังไม่มีโปรโมชั่นพิเศษ</p>
+                            </div>
                         </div>
-                        <div class="absolute right-0 bottom-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mb-10"></div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </div>

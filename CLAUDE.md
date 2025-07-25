@@ -127,3 +127,26 @@ All views now use Blade template inheritance to eliminate code duplication:
 - Required terms acceptance before application access
 - LINE avatar integration with fallback handling
 - Session persistence and authentication state management
+
+## Promotion System
+
+### Database Schema
+- **Promotions Table**: id, title, content, image_path, link_url, button_text, is_active, start_date, end_date, sort_order, background_color, timestamps
+
+### Features Implemented
+- Dynamic promotion carousel on dashboard
+- Active/inactive status management
+- Date-based promotion scheduling (start_date/end_date)
+- Sort ordering for promotion display
+- Customizable background colors and button text
+- WYSIWYG content support ready
+- Model scopes for filtering active and current promotions
+
+### TODO: Admin Features (Future Development)
+- [ ] Create admin panel for CRUD operations on promotions
+- [ ] Implement image upload functionality for promotion banners
+- [ ] Add WYSIWYG editor integration for promotion content
+- [ ] Create promotion analytics and click tracking
+- [ ] Add promotion categories/tags system
+- [ ] Implement A/B testing for promotions
+- [ ] Add promotion scheduling with automatic activation/deactivation

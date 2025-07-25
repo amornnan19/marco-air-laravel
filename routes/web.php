@@ -52,9 +52,14 @@ Route::get('/cookie-policy', function () {
 })->name('cookie.policy');
 
 // Dashboard (protected route)
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])->name('dashboard');
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')
+    ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
+    ->name('dashboard');
+
+// Promotion detail (protected route)
+Route::get('/promotion/{promotion}', 'App\Http\Controllers\DashboardController@showPromotion')
+    ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
+    ->name('promotion.show');
 
 // Logout route
 Route::post('/logout', function () {
