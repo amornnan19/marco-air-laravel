@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Panel - Marco Air')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    
+
     <!-- Quill.js CDN -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 </head>
+
 <body class="bg-gray-100">
     <!-- Admin Header -->
     <header class="bg-white shadow-sm border-b border-gray-200">
@@ -21,22 +23,18 @@
                         <h1 class="text-xl font-bold text-gray-900">Marco Air Admin</h1>
                     </div>
                     <nav class="hidden md:ml-6 md:flex md:space-x-8">
-                        <a href="{{ route('admin.dashboard') }}" 
-                           class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium
-                                  @if(request()->routeIs('admin.dashboard')) 
-                                      text-blue-600 border-blue-600 
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium
+                                  @if (request()->routeIs('admin.dashboard')) text-blue-600 border-blue-600 
                                   @else 
-                                      text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 
-                                  @endif">
+                                      text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 @endif">
                             แดชบอร์ด
                         </a>
-                        <a href="{{ route('admin.promotions.index') }}" 
-                           class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium
-                                  @if(request()->routeIs('admin.promotions.*')) 
-                                      text-blue-600 border-blue-600 
+                        <a href="{{ route('admin.promotions.index') }}"
+                            class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium
+                                  @if (request()->routeIs('admin.promotions.*')) text-blue-600 border-blue-600 
                                   @else 
-                                      text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 
-                                  @endif">
+                                      text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 @endif">
                             โปรโมชัน
                         </a>
                     </nav>
@@ -85,4 +83,5 @@
         @yield('content')
     </main>
 </body>
+
 </html>

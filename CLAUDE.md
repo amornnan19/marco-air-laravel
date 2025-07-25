@@ -24,8 +24,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `vendor/bin/phpunit tests/Feature` - Run feature tests only
 
 ### Code Quality
-- `vendor/bin/pint` - Laravel Pint (code formatter)
-- `composer run format` - Run Laravel Pint formatter
+- `vendor/bin/pint` - Laravel Pint (PHP code formatter)
+- `npm run format:blade` - Blade template formatter
+- `npm run format` - Format both Blade templates and PHP code
+- `composer run format` - Run Laravel Pint formatter only
 
 ### Queue Management
 - `php artisan queue:work` - Process queue jobs

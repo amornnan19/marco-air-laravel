@@ -1,4 +1,5 @@
-<nav class="fixed bottom-0 left-0 right-0 sm:absolute sm:bottom-0 sm:left-0 sm:right-0 bg-white border-t border-gray-200 px-4 py-2">
+<nav
+    class="fixed bottom-0 left-0 right-0 sm:absolute sm:bottom-0 sm:left-0 sm:right-0 bg-white border-t border-gray-200 px-4 py-2">
     <div class="max-w-md mx-auto">
         <div class="flex justify-around">
             <!-- Home -->
