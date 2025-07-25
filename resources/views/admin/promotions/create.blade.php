@@ -26,7 +26,7 @@
 
         <!-- Form -->
         <div class="bg-white shadow rounded-lg">
-            <form action="{{ route('admin.promotions.store') }}" method="POST" class="space-y-6 p-6">
+            <form action="{{ route('admin.promotions.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6 p-6">
                 @csrf
 
                 <!-- Title -->
@@ -42,25 +42,41 @@
 
                 <!-- Content -->
                 <div>
-                    <label for="content" class="block text-sm font-medium text-gray-700">เนื้อหาโปรโมชัน *</label>
+                    <label for="content" class="block text-sm font-medium text-gray-700 mb-2">เนื้อหาโปรโมชัน *</label>
+                    <div id="quill-editor" style="min-height: 200px;" class="bg-white border border-gray-300 rounded-md"></div>
                     <textarea name="content" 
                               id="content" 
-                              rows="4"
-                              class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                              class="hidden"
                               required>{{ old('content') }}</textarea>
-                    <p class="mt-1 text-sm text-gray-500">อธิบายรายละเอียดโปรโมชัน</p>
+                    <p class="mt-1 text-sm text-gray-500">อธิบายรายละเอียดโปรโมชัน (รองรับ Rich Text)</p>
                 </div>
 
-                <!-- Image Path -->
+                <!-- Image Upload -->
                 <div>
-                    <label for="image_path" class="block text-sm font-medium text-gray-700">ลิงก์รูปภาพ</label>
-                    <input type="url" 
-                           name="image_path" 
-                           id="image_path" 
-                           value="{{ old('image_path') }}"
-                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                           placeholder="https://example.com/image.jpg">
-                    <p class="mt-1 text-sm text-gray-500">URL ของรูปภาพโปรโมชัน (ถ้าไม่มีจะใช้สีพื้นหลังแทน)</p>
+                    <label for="image" class="block text-sm font-medium text-gray-700 mb-2">รูปภาพโปรโมชัน</label>
+                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md hover:border-gray-400 transition-colors">
+                        <div class="space-y-1 text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div class="flex text-sm text-gray-600">
+                                <label for="image" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
+                                    <span>อัพโหลดรูปภาพ</span>
+                                    <input id="image" name="image" type="file" class="sr-only" accept="image/*" onchange="previewImage(this)">
+                                </label>
+                                <p class="pl-1">หรือลากไฟล์มาวาง</p>
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG, GIF สูงสุด 2MB</p>
+                        </div>
+                    </div>
+                    <!-- Image Preview -->
+                    <div id="image-preview" class="mt-4 hidden">
+                        <img id="preview-img" src="" alt="Preview" class="max-w-xs h-auto rounded-lg shadow-md">
+                        <button type="button" onclick="removeImage()" class="mt-2 text-sm text-red-600 hover:text-red-800">ลบรูปภาพ</button>
+                    </div>
+                    @error('image')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Link URL & Button Text -->
@@ -112,11 +128,11 @@
                         <input type="number" 
                                name="sort_order" 
                                id="sort_order" 
-                               value="{{ old('sort_order', 1) }}"
-                               min="0"
+                               value="{{ old('sort_order', $nextSortOrder) }}"
+                               min="1"
                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                required>
-                        <p class="mt-1 text-sm text-gray-500">เลขน้อยแสดงก่อน</p>
+                        <p class="mt-1 text-sm text-gray-500">เลขน้อยแสดงก่อน (ระบบจะเติมลำดับถัดไปอัตโนมัติ)</p>
                     </div>
                     <div>
                         <label for="is_active" class="block text-sm font-medium text-gray-700">สถานะ</label>
@@ -148,4 +164,59 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // Initialize Quill editor
+        var quill = new Quill('#quill-editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'align': [] }],
+                    ['link', 'blockquote'],
+                    ['clean']
+                ]
+            },
+            placeholder: 'เขียนเนื้อหาโปรโมชัน...'
+        });
+
+        // Sync Quill content with hidden textarea
+        var contentTextarea = document.getElementById('content');
+        
+        // Set initial content if exists
+        if (contentTextarea.value) {
+            quill.root.innerHTML = contentTextarea.value;
+        }
+        
+        // Update textarea when Quill content changes
+        quill.on('text-change', function() {
+            contentTextarea.value = quill.root.innerHTML;
+        });
+
+        // Ensure textarea is updated before form submission
+        document.querySelector('form').addEventListener('submit', function() {
+            contentTextarea.value = quill.root.innerHTML;
+        });
+
+        // Image upload functions
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('preview-img').src = e.target.result;
+                    document.getElementById('image-preview').classList.remove('hidden');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function removeImage() {
+            document.getElementById('image').value = '';
+            document.getElementById('image-preview').classList.add('hidden');
+            document.getElementById('preview-img').src = '';
+        }
+    </script>
 @endsection

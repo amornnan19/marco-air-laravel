@@ -11,7 +11,7 @@ class Promotion extends Model
     protected $fillable = [
         'title',
         'content', 
-        'image_path',
+        'image',
         'link_url',
         'button_text',
         'is_active',
@@ -55,5 +55,11 @@ class Promotion extends Model
         $endValid = is_null($this->end_date) || $this->end_date >= $now;
         
         return $startValid && $endValid;
+    }
+
+    // Image accessor to get full URL
+    public function getImageUrlAttribute(): ?string
+    {
+        return $this->image ? asset('storage/' . $this->image) : null;
     }
 }

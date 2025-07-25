@@ -21,8 +21,8 @@
         <!-- Promotion Banner -->
         <div
             class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white mb-6 relative overflow-hidden">
-            @if ($promotion->image_path)
-                <img src="{{ $promotion->image_path }}" alt="{{ $promotion->title }}"
+            @if ($promotion->image)
+                <img src="{{ $promotion->image_url }}" alt="{{ $promotion->title }}"
                     class="w-full h-48 object-cover rounded-lg mb-4">
             @endif
 
@@ -51,8 +51,8 @@
         <!-- Content Section -->
         <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
             <h3 class="text-lg font-bold text-gray-900 mb-4">รายละเอียดโปรโมชั่น</h3>
-            <div class="text-gray-700 leading-relaxed space-y-3">
-                {!! nl2br(e($promotion->content)) !!}
+            <div class="text-gray-700 leading-relaxed space-y-3 prose prose-sm max-w-none">
+                {!! $promotion->content !!}
             </div>
         </div>
 

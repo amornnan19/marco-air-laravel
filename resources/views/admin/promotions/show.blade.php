@@ -67,8 +67,8 @@
             <div class="lg:col-span-2">
                 <!-- Promotion Banner -->
                 <div class="bg-white rounded-lg shadow mb-6">
-                    @if($promotion->image_path)
-                        <img src="{{ $promotion->image_path }}" 
+                    @if($promotion->image)
+                        <img src="{{ $promotion->image_url }}" 
                              alt="{{ $promotion->title }}" 
                              class="w-full h-64 object-cover rounded-t-lg">
                     @else
@@ -85,7 +85,7 @@
                     <div class="p-6">
                         <h3 class="text-lg font-semibold text-gray-900 mb-3">เนื้อหาโปรโมชัน</h3>
                         <div class="prose prose-sm max-w-none">
-                            {!! nl2br(e($promotion->content)) !!}
+                            {!! $promotion->content !!}
                         </div>
                         
                         @if($promotion->link_url && $promotion->link_url !== '#')

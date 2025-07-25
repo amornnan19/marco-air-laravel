@@ -41,8 +41,8 @@
                     @forelse($promotions as $promotion)
                         <div class="rounded-lg w-72 h-48 relative overflow-hidden cursor-pointer shadow-lg"
                             onclick="window.location.href='{{ route('promotion.show', $promotion) }}'">
-                            @if ($promotion->image_path)
-                                <img src="{{ $promotion->image_path }}" alt="{{ $promotion->title }}"
+                            @if ($promotion->image)
+                                <img src="{{ $promotion->image_url }}" alt="{{ $promotion->title }}"
                                     class="w-full h-full object-cover">
                             @else
                                 <!-- Fallback gradient if no image -->
@@ -56,7 +56,7 @@
                                 </div>
                             @endif
 
-                            @if ($promotion->image_path)
+                            @if ($promotion->image)
                                 <!-- Overlay for better text readability -->
                                 <div class="absolute inset-0 bg-black/20"></div>
                                 <!-- Title overlay -->

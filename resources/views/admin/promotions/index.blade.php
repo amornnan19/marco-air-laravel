@@ -45,8 +45,8 @@
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-12 w-12">
-                                            @if($promotion->image_path)
-                                                <img class="h-12 w-12 rounded-lg object-cover" src="{{ $promotion->image_path }}" alt="{{ $promotion->title }}">
+                                            @if($promotion->image)
+                                                <img class="h-12 w-12 rounded-lg object-cover" src="{{ $promotion->image_url }}" alt="{{ $promotion->title }}">
                                             @else
                                                 <div class="h-12 w-12 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
                                                     <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
