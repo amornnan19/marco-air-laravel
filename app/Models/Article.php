@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
@@ -34,21 +33,21 @@ class Article extends Model
     // Accessor for image URL
     public function getImageUrlAttribute(): ?string
     {
-        return $this->image ? asset('storage/' . $this->image) : null;
+        return $this->image ? asset('storage/'.$this->image) : null;
     }
 
     // Scopes
     public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', true)
-                    ->whereNotNull('published_at')
-                    ->where('published_at', '<=', now());
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', now());
     }
 
     public function scopeOrdered(Builder $query): Builder
     {
         return $query->orderBy('sort_order', 'asc')
-                    ->orderBy('published_at', 'desc');
+            ->orderBy('published_at', 'desc');
     }
 
     public function scopeByCategory(Builder $query, string $category): Builder
@@ -64,8 +63,8 @@ class Article extends Model
 
     public function isPublished(): bool
     {
-        return $this->is_published && 
-               $this->published_at && 
+        return $this->is_published &&
+               $this->published_at &&
                $this->published_at->isPast();
     }
 
@@ -73,6 +72,7 @@ class Article extends Model
     public function calculateReadingTime(): int
     {
         $wordCount = str_word_count(strip_tags($this->content));
+
         return max(1, round($wordCount / 200)); // 200 words per minute
     }
 }

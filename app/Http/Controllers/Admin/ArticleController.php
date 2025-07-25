@@ -13,9 +13,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::orderBy('sort_order', 'asc')
-                          ->orderBy('created_at', 'desc')
-                          ->paginate(10);
-        
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
         return view('admin.articles.index', compact('articles'));
     }
 
@@ -23,7 +23,7 @@ class ArticleController extends Controller
     {
         $nextSortOrder = Article::max('sort_order') + 1;
         $categories = $this->getCategories();
-        
+
         return view('admin.articles.create', compact('nextSortOrder', 'categories'));
     }
 
@@ -73,7 +73,7 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         $categories = $this->getCategories();
-        
+
         return view('admin.articles.edit', compact('article', 'categories'));
     }
 
@@ -142,7 +142,7 @@ class ArticleController extends Controller
             'เทคนิคการประหยัดไฟ',
             'การซ่อมแซม',
             'ข่าวสาร',
-            'อื่นๆ'
+            'อื่นๆ',
         ];
     }
 }

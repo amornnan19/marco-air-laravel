@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Promotion;
 use App\Models\Article;
+use App\Models\Promotion;
 
 class DashboardController extends Controller
 {
@@ -43,5 +43,14 @@ class DashboardController extends Controller
         $article->incrementViews();
 
         return view('app.article-detail', compact('article'));
+    }
+
+    public function articles()
+    {
+        $articles = Article::published()
+            ->ordered()
+            ->paginate(10);
+
+        return view('app.articles', compact('articles'));
     }
 }

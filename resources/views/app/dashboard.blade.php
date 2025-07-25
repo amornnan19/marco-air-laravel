@@ -188,7 +188,7 @@
             <div class="py-4">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-bold text-gray-900">บทความ</h3>
-                    <a href="#" class="text-blue-600 text-sm font-medium">ดูทั้งหมด</a>
+                    <a href="{{ route('articles.index') }}" class="text-blue-600 text-sm font-medium">ดูทั้งหมด</a>
                 </div>
 
                 <div class="space-y-4">
