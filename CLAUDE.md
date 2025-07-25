@@ -102,6 +102,7 @@ All views now use Blade template inheritance to eliminate code duplication:
 - **Update Profile** → extends mobile layout  
 - **Terms Acceptance** → extends mobile layout
 - **Dashboard** → extends dashboard layout
+- **Promotion Detail** → extends dashboard layout
 - **Policy Pages** → extend policy layout (terms-conditions, privacy-policy, cookie-policy)
 
 ### Mobile-First Design
@@ -114,6 +115,22 @@ All views now use Blade template inheritance to eliminate code duplication:
 - **Authentication Flow**: login → update-profile → terms → dashboard
 - **Policy Pages**: terms-conditions, privacy-policy, cookie-policy (publicly accessible)
 - **Protected Routes**: All main application pages require authentication and profile completion
+- **Promotion Routes**: `/promotion/{promotion}` - Individual promotion detail pages
+
+## Navigation System
+
+### Sticky Bottom Navigation
+- **Component Location**: `resources/views/components/sticky-bottom-navigation.blade.php`
+- **Mobile-Optimized**: Fixed bottom navigation for mobile app experience
+- **Menu Items**: หน้าแรก (Home), บริการ (Services), แชท (Chat), บทความ (Articles)
+- **Logout Integration**: Profile tab includes logout functionality with CSRF protection
+- **Responsive Design**: Centered with max-width constraint for mobile screens
+
+### Navigation Features
+- SVG icons for all menu items
+- Active state styling (blue for current page)
+- Proper form-based logout implementation
+- Thai language labels throughout
 
 ## Development Notes
 
@@ -141,6 +158,7 @@ All views now use Blade template inheritance to eliminate code duplication:
 - Customizable background colors and button text
 - WYSIWYG content support ready
 - Model scopes for filtering active and current promotions
+- Individual promotion detail pages with full content display
 
 ### TODO: Admin Features (Future Development)
 - [ ] Create admin panel for CRUD operations on promotions
