@@ -238,6 +238,6 @@
         </main>
 
         <!-- Sticky Bottom Navigation -->
-        @include('components.sticky-bottom-navigation')
+        @include('components.dealer-bottom-navigation')
     </div>
 @endsection
