@@ -41,6 +41,11 @@ class ProfileController extends Controller
             'phone' => $request->phone,
         ]);
 
+        // Check if user needs to accept terms
+        if (!$user->terms_accepted) {
+            return redirect()->route('terms.show');
+        }
+        
         return redirect()->route('dashboard')->with('success', 'อัปเดตข้อมูลโปรไฟล์เรียบร้อยแล้ว');
     }
 }

@@ -26,6 +26,10 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'phone',
+        'terms_accepted',
+        'terms_accepted_at',
+        'marketing_consent',
+        'data_sharing_consent',
     ];
 
     /**
@@ -48,6 +52,10 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'terms_accepted' => 'boolean',
+            'terms_accepted_at' => 'datetime',
+            'marketing_consent' => 'boolean',
+            'data_sharing_consent' => 'boolean',
         ];
     }
 }
