@@ -36,6 +36,13 @@ class DashboardController extends Controller
         return view('app.dealer-dashboard');
     }
 
+    public function orderDetail($orderId)
+    {
+        // For now, just return the mockup view
+        // Later this will fetch actual order data from database
+        return view('app.order-detail', compact('orderId'));
+    }
+
     public function showPromotion(Promotion $promotion)
     {
         // Check if promotion is active and current

@@ -68,7 +68,8 @@
             <!-- Order Cards -->
             <div class="space-y-3">
                 <!-- Order Card 1 -->
-                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer"
+                    onclick="window.location.href='{{ route('order.detail', 1) }}'">
                     <div class="p-4">
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -110,7 +111,8 @@
                 </div>
 
                 <!-- Order Card 2 -->
-                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer"
+                    onclick="window.location.href='{{ route('order.detail', 2) }}'">
                     <div class="p-4">
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -152,7 +154,8 @@
                 </div>
 
                 <!-- Order Card 3 -->
-                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer"
+                    onclick="window.location.href='{{ route('order.detail', 3) }}'">
                     <div class="p-4">
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -194,7 +197,8 @@
                 </div>
 
                 <!-- Order Card 4 -->
-                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer"
+                    onclick="window.location.href='{{ route('order.detail', 4) }}'">
                     <div class="p-4">
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
