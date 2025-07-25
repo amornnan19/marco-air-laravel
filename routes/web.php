@@ -76,6 +76,11 @@ Route::get('/promotions', 'App\Http\Controllers\DashboardController@promotions')
     ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
     ->name('promotions.index');
 
+// Products listing (protected route)
+Route::get('/products', 'App\Http\Controllers\DashboardController@products')
+    ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
+    ->name('products.index');
+
 // Promotion detail (protected route)
 Route::get('/promotion/{promotion}', 'App\Http\Controllers\DashboardController@showPromotion')
     ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])

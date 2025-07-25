@@ -84,4 +84,11 @@ class DashboardController extends Controller
 
         return view('app.promotions', compact('promotions'));
     }
+
+    public function products()
+    {
+        // For now, just return the mockup view
+        // Later this will fetch actual product data from database
+        return view('app.products');
+    }
 }
