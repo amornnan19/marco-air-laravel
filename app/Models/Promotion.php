@@ -2,22 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class Promotion extends Model
 {
     protected $fillable = [
         'title',
-        'content', 
+        'content',
         'image',
         'link_url',
         'button_text',
         'is_active',
         'start_date',
         'end_date',
-        'sort_order'
+        'sort_order',
     ];
 
     protected $casts = [
@@ -34,12 +34,13 @@ class Promotion extends Model
     public function scopeCurrent(Builder $query): Builder
     {
         $now = Carbon::now();
-        return $query->where(function($q) use ($now) {
+
+        return $query->where(function ($q) use ($now) {
             $q->where('start_date', '<=', $now)
-              ->orWhereNull('start_date');
-        })->where(function($q) use ($now) {
+                ->orWhereNull('start_date');
+        })->where(function ($q) use ($now) {
             $q->where('end_date', '>=', $now)
-              ->orWhereNull('end_date');
+                ->orWhereNull('end_date');
         });
     }
 
@@ -53,13 +54,13 @@ class Promotion extends Model
         $now = Carbon::now();
         $startValid = is_null($this->start_date) || $this->start_date <= $now;
         $endValid = is_null($this->end_date) || $this->end_date >= $now;
-        
+
         return $startValid && $endValid;
     }
 
     // Image accessor to get full URL
     public function getImageUrlAttribute(): ?string
     {
-        return $this->image ? asset('storage/' . $this->image) : null;
+        return $this->image ? asset('storage/'.$this->image) : null;
     }
 }

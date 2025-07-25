@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 // Login route (required by Laravel auth system)
 Route::get('/login', function () {
@@ -12,21 +12,21 @@ Route::get('/', function () {
     // If user is authenticated, redirect to appropriate page
     if (Auth::check()) {
         $user = Auth::user();
-        
+
         // Check if profile is incomplete
         if (empty($user->phone)) {
             return redirect()->route('profile.edit');
         }
-        
+
         // Check if terms not accepted
-        if (!$user->terms_accepted) {
+        if (! $user->terms_accepted) {
             return redirect()->route('terms.show');
         }
-        
+
         // Profile complete and terms accepted, go to dashboard
         return redirect()->route('dashboard');
     }
-    
+
     // Not authenticated, show login page
     return view('auth.login');
 });
@@ -74,10 +74,10 @@ Route::prefix('control-panel')->name('admin.')->group(function () {
 });
 
 // Admin Routes (Role-based access)
-Route::prefix('control-panel')->name('admin.')->middleware(['auth', \App\Http\Middleware\EnsureRole::class . ':admin'])->group(function () {
+Route::prefix('control-panel')->name('admin.')->middleware(['auth', \App\Http\Middleware\EnsureRole::class.':admin'])->group(function () {
     // Admin Dashboard
     Route::get('/', 'App\Http\Controllers\Admin\DashboardController@index')->name('dashboard');
-    
+
     // Promotion Management
     Route::resource('promotions', 'App\Http\Controllers\Admin\PromotionController');
 });
@@ -85,5 +85,6 @@ Route::prefix('control-panel')->name('admin.')->middleware(['auth', \App\Http\Mi
 // Logout route
 Route::post('/logout', function () {
     Auth::logout();
+
     return redirect('/');
 })->name('logout');

@@ -13,28 +13,28 @@ class EnsureRole
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     * @param  string  $role
      */
     public function handle(Request $request, Closure $next, string $role): Response
     {
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             // If accessing admin routes, redirect to admin login
             if ($request->is('control-panel/*')) {
                 return redirect()->route('admin.login');
             }
+
             return redirect()->route('login');
         }
 
         $user = Auth::user();
 
         // Check if user has the required role
-        if (!$user->hasRole($role)) {
+        if (! $user->hasRole($role)) {
             // If trying to access admin but user is not admin
-            if ($role === 'admin' && !$user->isAdmin()) {
+            if ($role === 'admin' && ! $user->isAdmin()) {
                 return redirect()->route('admin.login')
                     ->withErrors(['email' => 'คุณไม่มีสิทธิ์เข้าถึงหน้า Admin']);
             }
-            
+
             // For other roles, redirect to appropriate dashboard
             if ($user->isAdmin()) {
                 return redirect()->route('admin.dashboard');

@@ -31,7 +31,7 @@ class TermsController extends Controller
         ]);
 
         $user = Auth::user();
-        
+
         $user->update([
             'terms_accepted' => true,
             'terms_accepted_at' => now(),

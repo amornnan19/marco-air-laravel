@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Promotion;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class PromotionController extends Controller
@@ -22,7 +22,7 @@ class PromotionController extends Controller
     {
         // Get next sort order automatically
         $nextSortOrder = Promotion::max('sort_order') + 1;
-        
+
         return view('admin.promotions.create', compact('nextSortOrder'));
     }
 
@@ -50,12 +50,12 @@ class PromotionController extends Controller
         ]);
 
         $data = $request->except(['image']);
-        
+
         // Auto calculate sort_order if not provided or 0
-        if (!isset($data['sort_order']) || $data['sort_order'] == 0) {
+        if (! isset($data['sort_order']) || $data['sort_order'] == 0) {
             $data['sort_order'] = Promotion::max('sort_order') + 1;
         }
-        
+
         // Handle image upload
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('promotions', 'public');
@@ -101,13 +101,13 @@ class PromotionController extends Controller
         ]);
 
         $data = $request->except(['image', 'delete_image']);
-        
+
         // Handle image deletion
         if ($request->has('delete_image') && $promotion->image) {
             Storage::disk('public')->delete($promotion->image);
             $data['image'] = null;
         }
-        
+
         // Handle image upload
         if ($request->hasFile('image')) {
             // Delete old image if exists
@@ -129,7 +129,7 @@ class PromotionController extends Controller
         if ($promotion->image) {
             Storage::disk('public')->delete($promotion->image);
         }
-        
+
         $promotion->delete();
 
         return redirect()->route('admin.promotions.index')

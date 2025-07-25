@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -22,7 +21,7 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $user = Auth::user();
-        
+
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -42,10 +41,10 @@ class ProfileController extends Controller
         ]);
 
         // Check if user needs to accept terms
-        if (!$user->terms_accepted) {
+        if (! $user->terms_accepted) {
             return redirect()->route('terms.show');
         }
-        
+
         return redirect()->route('dashboard')->with('success', 'อัปเดตข้อมูลโปรไฟล์เรียบร้อยแล้ว');
     }
 }

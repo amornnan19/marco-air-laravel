@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('sort_order')->default(0);
             $table->string('background_color')->default('#3B82F6');
             $table->timestamps();
-            
+
             $table->index(['is_active', 'start_date', 'end_date']);
             $table->index('sort_order');
         });

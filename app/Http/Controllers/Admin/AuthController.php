@@ -36,10 +36,11 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $remember)) {
             $user = Auth::user();
-            
+
             // Check if user has admin role
             if ($user->isAdmin()) {
                 $request->session()->regenerate();
+
                 return redirect()->intended(route('admin.dashboard'))
                     ->with('success', 'เข้าสู่ระบบสำเร็จ');
             } else {
@@ -61,10 +62,10 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect()->route('admin.login')
             ->with('success', 'ออกจากระบบสำเร็จ');
     }
