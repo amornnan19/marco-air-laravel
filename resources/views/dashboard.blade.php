@@ -47,19 +47,28 @@
             <div class="overflow-x-auto scrollbar-hide">
                 <div class="flex gap-4 w-max">
                     @forelse($promotions as $promotion)
-                        <div class="bg-gradient-to-r {{ $promotion->background_color }} rounded-lg p-4 w-72 text-white relative overflow-hidden cursor-pointer"
+                        <div class="rounded-lg w-72 h-48 relative overflow-hidden cursor-pointer shadow-lg"
                             onclick="window.location.href='{{ route('promotion.show', $promotion) }}'">
-                            <div class="relative z-10">
-                                <h4 class="font-bold text-lg mb-2">{{ $promotion->title }}</h4>
-                                <p class="text-white/80 text-sm mb-3 line-clamp-2">
-                                    {{ Str::limit(strip_tags($promotion->content), 60) }}</p>
-                                <button
-                                    class="bg-white text-gray-700 font-medium px-4 py-2 rounded-lg text-sm hover:bg-gray-100 transition-colors">
-                                    ดูรายละเอียด
-                                </button>
+                            @if($promotion->image_path)
+                                <img src="{{ $promotion->image_path }}" alt="{{ $promotion->title }}" 
+                                     class="w-full h-full object-cover">
+                            @else
+                                <!-- Fallback gradient if no image -->
+                                <div class="w-full h-full bg-gradient-to-r {{ $promotion->background_color }} flex items-center justify-center">
+                                    <div class="text-center text-white">
+                                        <h4 class="font-bold text-lg mb-2">{{ $promotion->title }}</h4>
+                                        <p class="text-white/80 text-sm">{{ Str::limit(strip_tags($promotion->content), 60) }}</p>
+                                    </div>
+                                </div>
+                            @endif
+                            
+                            <!-- Overlay for better text readability -->
+                            <div class="absolute inset-0 bg-black/20"></div>
+                            
+                            <!-- Title overlay -->
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                                <h4 class="font-bold text-white text-lg">{{ $promotion->title }}</h4>
                             </div>
-                            <div class="absolute right-0 top-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12"></div>
-                            <div class="absolute right-0 bottom-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mb-10"></div>
                         </div>
                     @empty
                         <div
