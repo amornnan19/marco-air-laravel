@@ -112,8 +112,9 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
   - `update-profile.blade.php` - Profile completion form
   - `terms.blade.php` - Terms acceptance page
 - **Application Views** (`app/`) → phone frame on desktop, full screen on mobile
-  - `dashboard.blade.php` - Main dashboard with promotions
+  - `dashboard.blade.php` - Main dashboard with promotions and articles
   - `promotion-detail.blade.php` - Individual promotion details
+  - `article-detail.blade.php` - Individual article details with related articles
 - **Policy Views** (`policy/`) → full width on desktop, phone frame bypass
   - `terms-conditions.blade.php`
   - `privacy-policy.blade.php` 
@@ -131,6 +132,7 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 - **Policy Pages**: terms-conditions, privacy-policy, cookie-policy (publicly accessible)
 - **Protected Routes**: All main application pages require authentication and profile completion
 - **Promotion Routes**: `/promotion/{promotion}` - Individual promotion detail pages
+- **Article Routes**: `/article/{article}` - Individual article detail pages with view tracking
 
 ## Navigation System
 
@@ -177,6 +179,31 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 - File upload system for promotion images with Storage integration
 - Consistent blue gradient design theme
 
+## Articles System
+
+### Database Schema
+- **Articles Table**: id, title, content (LONGTEXT), excerpt (LONGTEXT), image, category, author, published_at, is_published, views_count, reading_time, sort_order, meta_description, timestamps
+
+### Features Implemented
+- **Content Management**: Rich text editor with Quill.js for HTML content creation
+- **Publishing System**: Draft/Published status with scheduled publishing support
+- **Category System**: Predefined categories (การบำรุงรักษาแอร์, คำแนะนำการใช้งาน, etc.)
+- **SEO Features**: Meta descriptions, auto-generated excerpts, reading time calculation
+- **Image Management**: File upload with validation and automatic storage cleanup
+- **View Tracking**: Automatic view count increment when users read articles
+- **Related Articles**: Smart recommendation based on category matching
+- **Social Sharing**: Web Share API integration with clipboard fallback
+- **Auto Features**: Sort order calculation, reading time estimation (200 words/min)
+- **Mobile Optimized**: Responsive design for mobile app experience
+
+### User Features
+- **Article Browsing**: Dashboard displays latest 6 published articles
+- **Article Reading**: Full article view with formatted content display
+- **Related Content**: Shows 3 related articles from same category
+- **Share Functionality**: Native sharing or clipboard copy
+- **View Statistics**: Real-time view count tracking
+- **Category Filtering**: Articles organized by predefined categories
+
 ## Admin Panel System
 
 ### Authentication & Authorization
@@ -193,6 +220,14 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
   - Auto sort order calculation
   - Active/inactive status control
   - Date-based scheduling
+- **Article Management**: Complete content management system
+  - Create/Edit/Delete articles with Quill.js rich text editor
+  - Image upload with validation (2MB limit, jpeg/png/jpg/gif)
+  - Category management with predefined options
+  - Auto-generated excerpts and reading time calculation
+  - Published/Draft status with scheduling
+  - SEO meta description support
+  - View tracking and statistics
 - **Responsive Design**: Works on both desktop and mobile
 - **Thai Language Support**: All admin interfaces in Thai
 
@@ -203,6 +238,7 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
   - `auth/login.blade.php` - Admin login page
   - `dashboard.blade.php` - Admin dashboard
   - `promotions/` - Promotion CRUD views
+  - `articles/` - Article CRUD views (index, create, edit, show)
 
 ### Future Development
 - [ ] Create promotion analytics and click tracking
@@ -211,3 +247,9 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 - [ ] Add user management interface
 - [ ] Create service booking management
 - [ ] Add reporting and analytics dashboard
+- [ ] Implement article search functionality
+- [ ] Add article comment system
+- [ ] Create article archive/pagination for dashboard
+- [ ] Add article tags system
+- [ ] Implement article analytics (most read, popular categories)
+- [ ] Add article export/import functionality
