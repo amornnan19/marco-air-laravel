@@ -72,7 +72,7 @@
                     <div class="p-4">
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <img src="https://via.placeholder.com/48x48/0066CC/FFFFFF?text=T" alt="Tech" class="w-full h-full rounded-lg object-cover">
+                                <img src="https://placehold.co/48x48" alt="Tech" class="w-full h-full rounded-lg object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-start justify-between mb-2">
@@ -114,7 +114,7 @@
                     <div class="p-4">
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <img src="https://via.placeholder.com/48x48/0066CC/FFFFFF?text=T" alt="Tech" class="w-full h-full rounded-lg object-cover">
+                                <img src="https://placehold.co/48x48" alt="Tech" class="w-full h-full rounded-lg object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-start justify-between mb-2">
@@ -156,7 +156,7 @@
                     <div class="p-4">
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <img src="https://via.placeholder.com/48x48/0066CC/FFFFFF?text=M" alt="Mitsubishi" class="w-full h-full rounded-lg object-cover">
+                                <img src="https://placehold.co/48x48" alt="Mitsubishi" class="w-full h-full rounded-lg object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-start justify-between mb-2">
@@ -198,7 +198,7 @@
                     <div class="p-4">
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <img src="https://via.placeholder.com/48x48/0066CC/FFFFFF?text=S" alt="Singer" class="w-full h-full rounded-lg object-cover">
+                                <img src="https://placehold.co/48x48" alt="Singer" class="w-full h-full rounded-lg object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-start justify-between mb-2">
