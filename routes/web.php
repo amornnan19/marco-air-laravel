@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+// Login route (required by Laravel auth system)
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
 Route::get('/', function () {
     // If user is authenticated, redirect to appropriate page
     if (Auth::check()) {

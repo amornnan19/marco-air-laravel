@@ -95,31 +95,32 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## View Architecture
 
-### Layout System (Refactored)
-- **Base Layout** (`layouts/app.blade.php`) - Core HTML structure with Vite assets
-- **Mobile Layout** (`layouts/mobile.blade.php`) - For authentication flow pages
-- **Dashboard Layout** (`layouts/dashboard.blade.php`) - For main application
-- **Policy Layout** (`layouts/policy.blade.php`) - For legal/policy pages
+### Layout System (Unified)
+- **Single Responsive Layout** (`layouts/app.blade.php`) - Unified layout for all pages
+  - **Mobile (< sm)**: Full screen layout
+  - **Desktop (≥ sm)**: Phone frame simulation with realistic bezels
+  - **Policy Pages**: Full width on desktop, phone frame for app pages
 
 ### Template Inheritance
-All views now use Blade template inheritance to eliminate code duplication:
-- **Authentication Views** (`auth/`) → extend mobile layout
+All views use the unified responsive layout (`layouts/app.blade.php`):
+- **Authentication Views** (`auth/`) → phone frame on desktop, full screen on mobile
   - `login.blade.php` - LINE login page
   - `update-profile.blade.php` - Profile completion form
   - `terms.blade.php` - Terms acceptance page
-- **Application Views** (`app/`) → extend dashboard layout
+- **Application Views** (`app/`) → phone frame on desktop, full screen on mobile
   - `dashboard.blade.php` - Main dashboard with promotions
   - `promotion-detail.blade.php` - Individual promotion details
-- **Policy Views** (`policy/`) → extend policy layout
+- **Policy Views** (`policy/`) → full width on desktop, phone frame bypass
   - `terms-conditions.blade.php`
   - `privacy-policy.blade.php` 
   - `cookie-policy.blade.php`
 
-### Mobile-First Design
-- Maximum width constraint: `max-w-sm` (small mobile screens)
-- Responsive design optimized for mobile usage
-- Consistent UI patterns across all pages
-- Centralized styling through layout templates
+### Responsive Design Features
+- **Mobile-First Approach**: Optimized for mobile devices primarily
+- **Desktop Phone Simulation**: 375x812px frame with realistic bezels and shadows
+- **Automatic Breakpoint Detection**: `sm` breakpoint (640px) switches between modes
+- **Policy Page Exception**: Legal pages use full desktop width for better readability
+- **Consistent UI Patterns**: Unified experience across all devices
 
 ### Page Structure
 - **Authentication Flow**: login → update-profile → terms → dashboard

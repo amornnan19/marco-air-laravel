@@ -1,4 +1,6 @@
-@extends('layouts.policy')
+@extends('layouts.app')
+
+@section('container-class', 'policy-page')
 
 @section('title', 'นโยบายการใช้คุกกี้ - Marco Air')
 
