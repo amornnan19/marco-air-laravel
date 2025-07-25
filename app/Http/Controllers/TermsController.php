@@ -12,7 +12,7 @@ class TermsController extends Controller
      */
     public function show()
     {
-        return view('terms');
+        return view('auth.terms');
     }
 
     /**

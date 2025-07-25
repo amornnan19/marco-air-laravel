@@ -13,7 +13,7 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        return view('update-profile');
+        return view('auth.update-profile');
     }
 
     /**

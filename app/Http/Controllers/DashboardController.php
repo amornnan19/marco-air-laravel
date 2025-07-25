@@ -14,7 +14,7 @@ class DashboardController extends Controller
             ->ordered()
             ->get();
 
-        return view('dashboard', compact('promotions'));
+        return view('app.dashboard', compact('promotions'));
     }
 
     public function showPromotion(Promotion $promotion)
@@ -24,6 +24,6 @@ class DashboardController extends Controller
             abort(404);
         }
 
-        return view('promotion-detail', compact('promotion'));
+        return view('app.promotion-detail', compact('promotion'));
     }
 }

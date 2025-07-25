@@ -53,7 +53,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `database/migrations/` - Database schema migrations
 - `database/factories/` - Model factories for testing
 - `database/seeders/` - Database seeders
-- `resources/views/` - Blade templates
+- `resources/views/` - Blade templates (organized by feature)
+  - `auth/` - Authentication flow templates
+  - `app/` - Main application templates
+  - `policy/` - Legal/policy page templates
+  - `layouts/` - Layout templates
+  - `components/` - Reusable components
 - `resources/css/` - CSS assets (with Tailwind)
 - `resources/js/` - JavaScript assets
 - `routes/web.php` - Web routes
@@ -98,12 +103,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Template Inheritance
 All views now use Blade template inheritance to eliminate code duplication:
-- **Login** → extends mobile layout
-- **Update Profile** → extends mobile layout  
-- **Terms Acceptance** → extends mobile layout
-- **Dashboard** → extends dashboard layout
-- **Promotion Detail** → extends dashboard layout
-- **Policy Pages** → extend policy layout (terms-conditions, privacy-policy, cookie-policy)
+- **Authentication Views** (`auth/`) → extend mobile layout
+  - `login.blade.php` - LINE login page
+  - `update-profile.blade.php` - Profile completion form
+  - `terms.blade.php` - Terms acceptance page
+- **Application Views** (`app/`) → extend dashboard layout
+  - `dashboard.blade.php` - Main dashboard with promotions
+  - `promotion-detail.blade.php` - Individual promotion details
+- **Policy Views** (`policy/`) → extend policy layout
+  - `terms-conditions.blade.php`
+  - `privacy-policy.blade.php` 
+  - `cookie-policy.blade.php`
 
 ### Mobile-First Design
 - Maximum width constraint: `max-w-sm` (small mobile screens)

@@ -23,7 +23,7 @@ Route::get('/', function () {
     }
     
     // Not authenticated, show login page
-    return view('login');
+    return view('auth.login');
 });
 
 // LINE Login Routes
@@ -40,15 +40,15 @@ Route::post('/terms', 'App\Http\Controllers\TermsController@accept')->middleware
 
 // Policy pages (accessible without authentication)
 Route::get('/terms-conditions', function () {
-    return view('terms-conditions');
+    return view('policy.terms-conditions');
 })->name('terms.conditions');
 
 Route::get('/privacy-policy', function () {
-    return view('privacy-policy');
+    return view('policy.privacy-policy');
 })->name('privacy.policy');
 
 Route::get('/cookie-policy', function () {
-    return view('cookie-policy');
+    return view('policy.cookie-policy');
 })->name('cookie.policy');
 
 // Dashboard (protected route)
