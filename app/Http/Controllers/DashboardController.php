@@ -9,6 +9,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // Check user role and redirect to appropriate dashboard
+        $user = auth()->user();
+        
+        if ($user->role === 'dealer') {
+            return $this->dealerDashboard();
+        }
+        
+        // Default customer dashboard
         $promotions = Promotion::active()
             ->current()
             ->ordered()
@@ -20,6 +28,11 @@ class DashboardController extends Controller
             ->get();
 
         return view('app.dashboard', compact('promotions', 'articles'));
+    }
+
+    public function dealerDashboard()
+    {
+        return view('app.dealer-dashboard');
     }
 
     public function showPromotion(Promotion $promotion)

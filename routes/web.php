@@ -61,6 +61,11 @@ Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')
     ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
     ->name('dashboard');
 
+// Dealer Dashboard (protected route)
+Route::get('/dealer-dashboard', 'App\Http\Controllers\DashboardController@dealerDashboard')
+    ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class, \App\Http\Middleware\EnsureRole::class.':dealer'])
+    ->name('dealer.dashboard');
+
 // Promotions listing (protected route)
 Route::get('/promotions', 'App\Http\Controllers\DashboardController@promotions')
     ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
