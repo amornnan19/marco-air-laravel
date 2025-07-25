@@ -25,6 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Code Quality
 - `vendor/bin/pint` - Laravel Pint (code formatter)
+- `composer run format` - Run Laravel Pint formatter
 
 ### Queue Management
 - `php artisan queue:work` - Process queue jobs
