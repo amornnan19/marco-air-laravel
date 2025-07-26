@@ -6,7 +6,9 @@
         "build": "vite build",
         "dev": "vite",
         "format:blade": "blade-formatter --write resources/views/**/*.blade.php",
-        "fmt": "npm run format:blade && composer run format"
+        "fmt": "pnpm run format:blade && composer run format",
+        "fresh": "php artisan migrate:fresh",
+        "fresh:seed": "php artisan migrate:fresh --seed"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
