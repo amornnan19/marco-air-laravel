@@ -18,13 +18,13 @@ class Service extends Model
         'contact_phone',
         'price_display',
         'is_active',
-        'sort_order'
+        'sort_order',
     ];
 
     protected $casts = [
         'packages' => 'array',
         'details' => 'array',
-        'is_active' => 'boolean'
+        'is_active' => 'boolean',
     ];
 
     // Scopes
@@ -44,14 +44,16 @@ class Service extends Model
         if ($this->hero_image) {
             return Storage::url($this->hero_image);
         }
+
         return null;
     }
 
     public function getFormattedPriceDisplayAttribute()
     {
         if ($this->price_display) {
-            return number_format($this->price_display) . ' บาท';
+            return number_format($this->price_display).' บาท';
         }
+
         return null;
     }
 
@@ -59,6 +61,7 @@ class Service extends Model
     public function calculateSortOrder()
     {
         $maxOrder = static::max('sort_order') ?? 0;
+
         return $maxOrder + 10;
     }
 }

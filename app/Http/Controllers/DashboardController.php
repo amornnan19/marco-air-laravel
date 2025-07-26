@@ -178,7 +178,7 @@ class DashboardController extends Controller
         $service = Service::active()
             ->where('slug', $serviceSlug)
             ->firstOrFail();
-        
+
         return view('app.service-detail', compact('service'));
     }
 }
