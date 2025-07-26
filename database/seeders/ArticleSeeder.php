@@ -318,7 +318,7 @@ class ArticleSeeder extends Seeder
 
         foreach ($articles as $articleData) {
             $article = Article::create($articleData);
-            
+
             // Calculate and update reading time
             $readingTime = $article->calculateReadingTime();
             $article->update(['reading_time' => $readingTime]);
