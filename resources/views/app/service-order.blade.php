@@ -1159,69 +1159,71 @@
             const today = new Date().toISOString().split('T')[0];
             document.querySelector('[name="appointment_date"]').setAttribute('min', today);
             
-            // Initialize Stripe elements (Test Mode)
-            // ใส่ Stripe Test Publishable Key จริงที่นี่
+            // Create demo card form immediately (don't wait for Stripe)
+            createDemoCardForm();
+            
+            // Initialize Stripe elements (Test Mode) - optional for real integration
             const stripeKey = 'pk_test_51IabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; // ตัวอย่าง - ต้องเปลี่ยนเป็น key จริง
             
-            // Wait for Stripe.js to load and initialize
+            // Wait for Stripe.js to load and initialize (for future real integration)
             function initializeStripe() {
                 // Check if Stripe is available
                 if (typeof Stripe === 'undefined') {
-                    // Stripe not loaded yet, wait and try again
-                    setTimeout(initializeStripe, 100);
+                    // Stripe not loaded yet, but demo form is already working
+                    console.log('Stripe not loaded, using demo form');
                     return;
                 }
                 
-                // Only initialize Stripe if we have a real key
-                if (stripeKey && stripeKey !== 'pk_test_YOUR_PUBLISHABLE_KEY_HERE') {
+                // Only initialize real Stripe if we have a real key (future enhancement)
+                if (stripeKey && stripeKey !== 'pk_test_51IabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890') {
                     try {
                         stripe = Stripe(stripeKey);
                         elements = stripe.elements();
 
-                    // Create card element
-                    cardElement = elements.create('card', {
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                fontFamily: '"LINE Seed Sans TH", sans-serif',
-                                '::placeholder': {
-                                    color: '#aab7c4',
+                        // Create card element
+                        cardElement = elements.create('card', {
+                            style: {
+                                base: {
+                                    fontSize: '16px',
+                                    color: '#424770',
+                                    fontFamily: '"LINE Seed Sans TH", sans-serif',
+                                    '::placeholder': {
+                                        color: '#aab7c4',
+                                    },
+                                },
+                                invalid: {
+                                    color: '#9e2146',
                                 },
                             },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    });
+                        });
 
-                    // Mount card element
-                    cardElement.mount('#card-element');
+                        // Mount card element (replace demo form)
+                        cardElement.mount('#card-element');
 
-                    // Handle real-time validation errors from the card Element
-                    cardElement.on('change', function(event) {
-                        const displayError = document.getElementById('card-errors');
-                        if (event.error) {
-                            displayError.textContent = event.error.message;
-                            displayError.classList.remove('hidden');
-                        } else {
-                            displayError.textContent = '';
-                            displayError.classList.add('hidden');
-                        }
-                    });
-                } catch (error) {
-                    console.error('Stripe initialization error:', error);
-                    // Show error in card element instead of alert
-                    document.getElementById('card-element').innerHTML = '<div class="text-red-600 text-sm p-2">ไม่สามารถโหลดระบบชำระเงินได้ กรุณาติดต่อเจ้าหน้าที่</div>';
-                }
+                        // Handle real-time validation errors from the card Element
+                        cardElement.on('change', function(event) {
+                            const displayError = document.getElementById('card-errors');
+                            if (event.error) {
+                                displayError.textContent = event.error.message;
+                                displayError.classList.remove('hidden');
+                            } else {
+                                displayError.textContent = '';
+                                displayError.classList.add('hidden');
+                            }
+                        });
+                        
+                        console.log('Real Stripe initialized successfully');
+                    } catch (error) {
+                        console.error('Stripe initialization error:', error);
+                        // Keep demo form if real Stripe fails
+                    }
                 } else {
-                    // Create realistic demo form immediately (not waiting for Stripe)
-                    createDemoCardForm();
+                    console.log('Using demo form (no real Stripe key provided)');
                 }
             }
             
-            // Start Stripe initialization
-            initializeStripe();
+            // Start Stripe initialization (optional)
+            setTimeout(initializeStripe, 1000);
         });
     </script>
 @endsection
