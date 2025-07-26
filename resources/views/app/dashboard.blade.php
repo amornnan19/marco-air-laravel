@@ -107,7 +107,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <span class="text-sm text-gray-800 font-medium">บริการฉุกเฉิน 24ชม ฟรี!</span>
+                            <span class="text-sm text-gray-800 font-medium">ปรึกษาผู้เชี่ยวชาญ ฟรี!</span>
                         </div>
 
                         <!-- Service 5 -->
@@ -120,7 +120,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <span class="text-sm text-gray-800 font-medium">ชมส์มคลังนท์</span>
+                            <span class="text-sm text-gray-800 font-medium">ชมผลิตภัณฑ์</span>
                         </div>
                     </div>
                 </div>
