@@ -181,4 +181,14 @@ class DashboardController extends Controller
 
         return view('app.service-detail', compact('service'));
     }
+
+    public function orderService($serviceSlug)
+    {
+        // Find service by slug
+        $service = Service::active()
+            ->where('slug', $serviceSlug)
+            ->firstOrFail();
+
+        return view('app.service-order', compact('service'));
+    }
 }

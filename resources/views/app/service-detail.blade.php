@@ -109,9 +109,9 @@
 
         <!-- Bottom Action Button -->
         <div class="bg-white border-t p-4">
-            <button class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg">
+            <a href="{{ route('service.order', $service->slug) }}" class="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg text-center">
                 สนใจบริการ
-            </button>
+            </a>
         </div>
     </div>
 @endsection

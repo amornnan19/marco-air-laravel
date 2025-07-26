@@ -106,6 +106,11 @@ Route::get('/service/{serviceType}', 'App\Http\Controllers\DashboardController@s
     ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
     ->name('service.show');
 
+// Service order (protected route)
+Route::get('/service/{serviceType}/order', 'App\Http\Controllers\DashboardController@orderService')
+    ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
+    ->name('service.order');
+
 // Admin Authentication Routes (No middleware)
 Route::prefix('control-panel')->name('admin.')->group(function () {
     Route::get('/login', 'App\Http\Controllers\Admin\AuthController@showLoginForm')->name('login');

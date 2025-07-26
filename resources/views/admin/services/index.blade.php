@@ -101,12 +101,6 @@
                                         class="text-blue-600 hover:text-blue-900">ดู</a>
                                     <a href="{{ route('admin.services.edit', $service) }}"
                                         class="text-indigo-600 hover:text-indigo-900">แก้ไข</a>
-                                    <form action="{{ route('admin.services.destroy', $service) }}" method="POST"
-                                        class="inline" onsubmit="return confirm('ต้องการลบบริการนี้หรือไม่?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-900">ลบ</button>
-                                    </form>
                                 </div>
                             </td>
                         </tr>

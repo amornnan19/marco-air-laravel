@@ -149,17 +149,15 @@ class ServiceController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * Note: Services should not be deleted to prevent breaking frontend functionality.
+     * Use is_active status instead.
      */
     public function destroy(Service $service)
     {
-        // Delete image if exists
-        if ($service->hero_image) {
-            Storage::disk('public')->delete($service->hero_image);
-        }
-
-        $service->delete();
+        // Instead of deleting, deactivate the service
+        $service->update(['is_active' => false]);
 
         return redirect()->route('admin.services.index')
-            ->with('success', 'ลบบริการสำเร็จแล้ว');
+            ->with('success', 'ปิดใช้งานบริการสำเร็จแล้ว (ไม่สามารถลบบริการได้เพื่อป้องกัน error ในหน้าบ้าน)');
     }
 }
