@@ -27,21 +27,24 @@ class EnsureRole
 
         $user = Auth::user();
 
-        // Check if user has the required role
-        if (! $user->hasRole($role)) {
-            // If trying to access admin but user is not admin
-            if ($role === 'admin' && ! $user->isAdmin()) {
+        // Check if user has the required role or admin privileges
+        if ($role === 'admin') {
+            // For admin routes, check both role and is_admin flag
+            if (! $user->isAdmin()) {
                 return redirect()->route('admin.login')
                     ->withErrors(['email' => 'คุณไม่มีสิทธิ์เข้าถึงหน้า Admin']);
             }
-
-            // For other roles, redirect to appropriate dashboard
-            if ($user->isAdmin()) {
-                return redirect()->route('admin.dashboard');
-            } elseif ($user->hasRole('dealer')) {
-                return redirect()->route('dashboard'); // No dealer dashboard yet
-            } else {
-                return redirect()->route('dashboard');
+        } else {
+            // For other roles, check exact role match
+            if (! $user->hasRole($role)) {
+                // Redirect to appropriate dashboard based on user type
+                if ($user->isAdmin()) {
+                    return redirect()->route('admin.dashboard');
+                } elseif ($user->hasRole('dealer')) {
+                    return redirect()->route('dashboard');
+                } else {
+                    return redirect()->route('dashboard');
+                }
             }
         }
 
