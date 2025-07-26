@@ -92,7 +92,12 @@ class DashboardController extends Controller
             ->ordered()
             ->get();
 
-        return view('app.products', compact('products'));
+        $promotions = Promotion::active()
+            ->current()
+            ->ordered()
+            ->get();
+
+        return view('app.products', compact('products', 'promotions'));
     }
 
     public function productDetail($productId)

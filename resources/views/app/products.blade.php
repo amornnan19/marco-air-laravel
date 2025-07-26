@@ -43,20 +43,69 @@
         <!-- Main Content -->
         <main class="flex-1 max-w-md mx-auto px-4 pb-20 overflow-y-auto">
             <!-- Promotion Banner -->
-            <div class="py-4">
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                    <img src="https://placehold.co/400x200/4F46E5/FFFFFF?text=Promotion+Banner" alt="Promotion"
-                        class="w-full h-48 object-cover">
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <!-- Carousel Indicators -->
-                        <div class="flex justify-center space-x-2 mb-4">
-                            <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
-                            <div class="w-2 h-2 bg-white/50 rounded-full"></div>
-                            <div class="w-2 h-2 bg-white/50 rounded-full"></div>
+            @if($promotions && $promotions->count() > 0)
+                <div class="py-4">
+                    <div class="relative bg-white rounded-lg shadow-sm overflow-hidden">
+                        <!-- Promotion Carousel -->
+                        <div class="relative h-48 overflow-hidden">
+                            @foreach($promotions as $index => $promotion)
+                                <div class="promotion-slide absolute inset-0 transition-transform duration-300 ease-in-out {{ $index === 0 ? 'translate-x-0' : 'translate-x-full' }}" 
+                                     data-slide="{{ $index }}">
+                                    @if($promotion->image)
+                                        <img src="{{ $promotion->image_url }}" alt="{{ $promotion->title }}"
+                                            class="w-full h-48 object-cover">
+                                    @else
+                                        <div class="w-full h-48 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                                            <div class="text-center text-white p-6">
+                                                <h3 class="text-lg font-bold mb-2">{{ $promotion->title }}</h3>
+                                                <p class="text-sm opacity-90">{{ Str::limit(strip_tags($promotion->content), 100) }}</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    
+                                    @if($promotion->link_url && $promotion->button_text)
+                                        <div class="absolute inset-0 bg-black/20 flex items-end">
+                                            <div class="p-4 w-full">
+                                                <button onclick="window.open('{{ $promotion->link_url }}', '_blank')"
+                                                    class="bg-white text-blue-600 px-4 py-2 rounded font-medium text-sm hover:bg-blue-50 transition-colors">
+                                                    {{ $promotion->button_text }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            @endforeach
                         </div>
+                        
+                        <!-- Carousel Indicators -->
+                        @if($promotions->count() > 1)
+                            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                                <div class="flex space-x-2">
+                                    @foreach($promotions as $index => $promotion)
+                                        <button class="indicator w-2 h-2 rounded-full transition-colors {{ $index === 0 ? 'bg-white' : 'bg-white/50' }}"
+                                                onclick="showSlide({{ $index }})"
+                                                data-indicator="{{ $index }}"></button>
+                                    @endforeach
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation Arrows -->
+                            <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                                    onclick="prevSlide()">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                                    onclick="nextSlide()">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        @endif
                     </div>
                 </div>
-            </div>
+            @endif
 
             <!-- Service Icons -->
             <div class="py-4">
@@ -142,4 +191,41 @@
         <!-- Sticky Bottom Navigation -->
         @include('components.sticky-bottom-navigation')
     </div>
+
+    @if($promotions && $promotions->count() > 1)
+        <script>
+            let currentSlide = 0;
+            const totalSlides = {{ $promotions->count() }};
+            
+            function showSlide(index) {
+                currentSlide = index;
+                
+                // Hide all slides
+                document.querySelectorAll('.promotion-slide').forEach((slide, i) => {
+                    slide.style.transform = i === index ? 'translateX(0)' : 'translateX(100%)';
+                });
+                
+                // Update indicators
+                document.querySelectorAll('.indicator').forEach((indicator, i) => {
+                    indicator.classList.toggle('bg-white', i === index);
+                    indicator.classList.toggle('bg-white/50', i !== index);
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            }
+            
+            // Auto-play carousel every 5 seconds
+            setInterval(() => {
+                nextSlide();
+            }, 5000);
+        </script>
+    @endif
 @endsection
