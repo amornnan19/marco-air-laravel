@@ -29,9 +29,13 @@
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">
                                 เปิดใช้งาน
                             </span>
+                        @elseif($promotion->is_active && $promotion->start_date && $promotion->start_date > now())
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-medium">
+                                รอเวลาเริ่ม
+                            </span>
                         @elseif($promotion->is_active)
-                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-sm font-medium">
-                                รอเวลา
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm font-medium">
+                                หมดเวลา
                             </span>
                         @else
                             <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-sm font-medium">

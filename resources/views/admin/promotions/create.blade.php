@@ -137,6 +137,8 @@
                     <div>
                         <label for="is_active" class="block text-sm font-medium text-gray-700">สถานะ</label>
                         <div class="mt-1">
+                            <!-- Hidden input to ensure a value is always sent -->
+                            <input type="hidden" name="is_active" value="0">
                             <label class="inline-flex items-center">
                                 <input type="checkbox" 
                                        name="is_active" 

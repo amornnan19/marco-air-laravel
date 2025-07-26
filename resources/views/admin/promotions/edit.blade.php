@@ -29,6 +29,9 @@
             <form action="{{ route('admin.promotions.update', $promotion) }}" method="POST" enctype="multipart/form-data" class="space-y-6 p-6">
                 @csrf
                 @method('PUT')
+                
+                <!-- Hidden input for image deletion -->
+                <input type="hidden" name="delete_image" id="delete_image_flag" value="0">
 
                 <!-- Title -->
                 <div>
@@ -149,6 +152,8 @@
                     <div>
                         <label for="is_active" class="block text-sm font-medium text-gray-700">สถานะ</label>
                         <div class="mt-1">
+                            <!-- Hidden input to ensure a value is always sent -->
+                            <input type="hidden" name="is_active" value="0">
                             <label class="inline-flex items-center">
                                 <input type="checkbox" 
                                        name="is_active" 
@@ -234,12 +239,9 @@
         function removeCurrentImage() {
             if (confirm('ต้องการลบรูปภาพปัจจุบันหรือไม่?')) {
                 document.getElementById('current-image').style.display = 'none';
-                // Create hidden input to mark image for deletion
-                var deleteInput = document.createElement('input');
-                deleteInput.type = 'hidden';
-                deleteInput.name = 'delete_image';
-                deleteInput.value = '1';
-                document.querySelector('form').appendChild(deleteInput);
+                
+                // Set delete flag to 1
+                document.getElementById('delete_image_flag').value = '1';
             }
         }
     </script>

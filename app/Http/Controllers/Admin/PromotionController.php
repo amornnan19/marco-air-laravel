@@ -102,14 +102,14 @@ class PromotionController extends Controller
 
         $data = $request->except(['image', 'delete_image']);
 
+
         // Handle image deletion
-        if ($request->has('delete_image') && $promotion->image) {
+        if ($request->get('delete_image') == '1' && $promotion->image) {
             Storage::disk('public')->delete($promotion->image);
             $data['image'] = null;
         }
-
         // Handle image upload
-        if ($request->hasFile('image')) {
+        elseif ($request->hasFile('image')) {
             // Delete old image if exists
             if ($promotion->image) {
                 Storage::disk('public')->delete($promotion->image);
