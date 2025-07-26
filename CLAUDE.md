@@ -277,15 +277,16 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 ### Product Features Implemented
 - **Product Catalog**: 2-column grid layout with product cards
 - **Product Detail**: Complete product information with images, specifications, and purchase button
+- **Advanced Filtering System**: Search, category, brand, price range, and sorting functionality
 - **Navigation Integration**: Clickable product cards with route navigation
 - **Responsive Design**: Mobile-optimized layout with proper spacing
 - **Dynamic Promotion Carousel**: Integrated promotion banner system with database-driven content
 - **Related Products**: Smart recommendation based on category matching
 
 ### Product Directory Structure
-- `resources/views/app/products.blade.php` - Product listing page
+- `resources/views/app/products.blade.php` - Product listing page with advanced filtering
 - `resources/views/app/product-detail.blade.php` - Product detail page
-- Controller methods in `DashboardController`: `products()`, `productDetail($productId)`
+- Controller methods in `DashboardController`: `products(Request $request)`, `productDetail($productId)`
 - Admin controller: `app/Http/Controllers/Admin/ProductController.php` - Full CRUD operations
 
 ## Font System
@@ -327,3 +328,73 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 - ✅ Product image upload functionality for admin
 - ✅ Complete admin product management interface
 - ✅ Integration with existing promotion system on products page
+
+## Services System
+
+### Database Schema
+**Services Table**: Complete implementation for service management
+- **Basic Information**:
+  - `id` - Primary key
+  - `name` - Service name (e.g., "บริการล้างแอร์", "บริการซ่อมแอร์")
+  - `slug` - URL-friendly identifier (air-cleaning, air-repair, air-installation)
+  - `description` - Service description
+
+- **Display Information**:
+  - `hero_image` - Service hero image path (nullable)
+  - `icon_color` - Color theme for service (blue, green, orange)
+
+- **Service Content**:
+  - `packages` - Service packages with pricing (JSON format)
+  - `details` - Service details and conditions (JSON format)
+  - `contact_phone` - Contact phone number
+  - `price_display` - Display price for contact section
+
+- **Management**:
+  - `is_active` - Active/inactive status
+  - `sort_order` - Display order
+  - `created_at`, `updated_at` - Timestamps
+
+### Features Implemented
+- **3 Core Services**: ล้างแอร์, ซ่อมแอร์, ติดตั้งแอร์ย้ายแอร์
+- **Service Detail Pages**: Individual service pages with packages and pricing
+- **Dashboard Integration**: Clickable service cards navigate to detail pages
+- **Database-Driven Content**: All service data managed through database
+- **Flexible Pricing**: Multiple package options per service with different pricing tiers
+- **Contact Integration**: Phone numbers and pricing display in contact sections
+- **Mobile-Optimized**: Responsive design for mobile app experience
+
+### Service Routes
+- **Service Detail**: `/service/{serviceSlug}` - Individual service detail pages
+- **Dashboard Navigation**: Service cards in main dashboard link to respective services
+
+### Service Directory Structure
+- `app/Models/Service.php` - Service model with scopes and accessors
+- `resources/views/app/service-detail.blade.php` - Service detail page template
+- `database/migrations/create_services_table.php` - Services table migration
+- `database/seeders/ServiceSeeder.php` - Service data seeder
+- Controller method: `DashboardController@showService($serviceSlug)`
+
+### Implementation Status (Completed)
+- ✅ Services migration with complete schema
+- ✅ Service model with scopes, accessors, and helper methods
+- ✅ ServiceSeeder with 3 main services and package data
+- ✅ Service detail page with hero images and package listings
+- ✅ Dashboard integration with clickable service navigation
+- ✅ Database-driven service management system
+
+## Component System
+
+### Reusable Components
+- **Promotion Carousel** (`components/promotion-carousel.blade.php`)
+  - Horizontal scrolling carousel with drag/wheel support
+  - Smart scroll indicators showing current position
+  - Clickable indicators for navigation with smooth scrolling
+  - Used on both dashboard and products pages
+  - Prevents duplicate code and ensures consistent behavior
+
+### Component Features
+- **Interactive Navigation**: Drag to scroll, mouse wheel support, clickable indicators
+- **Smart Position Detection**: Automatically updates indicators based on scroll position
+- **Responsive Design**: Works seamlessly across mobile and desktop
+- **Consistent Styling**: Unified appearance across all pages
+- **Easy Maintenance**: Single component file for all carousel functionality

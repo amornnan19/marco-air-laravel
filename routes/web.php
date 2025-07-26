@@ -101,6 +101,11 @@ Route::get('/article/{article}', 'App\Http\Controllers\DashboardController@showA
     ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
     ->name('article.show');
 
+// Service detail (protected route)
+Route::get('/service/{serviceType}', 'App\Http\Controllers\DashboardController@showService')
+    ->middleware(['auth', \App\Http\Middleware\EnsureProfileComplete::class])
+    ->name('service.show');
+
 // Admin Authentication Routes (No middleware)
 Route::prefix('control-panel')->name('admin.')->group(function () {
     Route::get('/login', 'App\Http\Controllers\Admin\AuthController@showLoginForm')->name('login');

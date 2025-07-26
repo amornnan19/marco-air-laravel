@@ -61,7 +61,8 @@
 
                     <div class="grid grid-cols-3 gap-4">
                         <!-- Service 1 -->
-                        <div class="bg-blue-100 rounded-lg p-4 text-center">
+                        <div class="bg-blue-100 rounded-lg p-4 text-center cursor-pointer hover:bg-blue-200 transition-colors"
+                            onclick="window.location.href='{{ route('service.show', 'air-cleaning') }}'">
                             <div class="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
                                 <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -73,7 +74,8 @@
                         </div>
 
                         <!-- Service 2 -->
-                        <div class="bg-green-100 rounded-lg p-4 text-center">
+                        <div class="bg-green-100 rounded-lg p-4 text-center cursor-pointer hover:bg-green-200 transition-colors"
+                            onclick="window.location.href='{{ route('service.show', 'air-repair') }}'">
                             <div class="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
                                 <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -86,7 +88,8 @@
                         </div>
 
                         <!-- Service 3 -->
-                        <div class="bg-orange-100 rounded-lg p-4 text-center">
+                        <div class="bg-orange-100 rounded-lg p-4 text-center cursor-pointer hover:bg-orange-200 transition-colors"
+                            onclick="window.location.href='{{ route('service.show', 'air-installation') }}'">
                             <div class="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
                                 <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">

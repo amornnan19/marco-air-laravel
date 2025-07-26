@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Product;
 use App\Models\Promotion;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -169,5 +170,15 @@ class DashboardController extends Controller
             ->get();
 
         return view('app.product-detail', compact('product', 'relatedProducts'));
+    }
+
+    public function showService($serviceSlug)
+    {
+        // Find service by slug
+        $service = Service::active()
+            ->where('slug', $serviceSlug)
+            ->firstOrFail();
+        
+        return view('app.service-detail', compact('service'));
     }
 }
