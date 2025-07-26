@@ -3,7 +3,7 @@
 @section('title', 'แก้ไขสินค้า: ' . $product->name)
 
 @section('content')
-<div class="container mx-auto px-4 py-6">
+<div class="px-4 py-6 sm:px-0">
     <div class="max-w-4xl mx-auto">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold text-gray-900">แก้ไขสินค้า: {{ $product->name }}</h1>
