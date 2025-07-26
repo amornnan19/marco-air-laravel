@@ -24,19 +24,23 @@
         <!-- Tab Navigation -->
         <div class="bg-white border-b border-gray-200">
             <div class="flex">
-                <button class="tab-btn flex-1 px-3 py-3 text-sm font-medium text-center border-b-2 border-blue-600 text-blue-600"
+                <button
+                    class="tab-btn flex-1 px-3 py-3 text-sm font-medium text-center border-b-2 border-blue-600 text-blue-600"
                     data-tab="order-details">
                     รายการสั่งซื้อ
                 </button>
-                <button class="tab-btn flex-1 px-3 py-3 text-sm font-medium text-center border-b-2 border-transparent text-gray-500"
+                <button
+                    class="tab-btn flex-1 px-3 py-3 text-sm font-medium text-center border-b-2 border-transparent text-gray-500"
                     data-tab="location">
                     สถานที่
                 </button>
-                <button class="tab-btn flex-1 px-3 py-3 text-sm font-medium text-center border-b-2 border-transparent text-gray-500"
+                <button
+                    class="tab-btn flex-1 px-3 py-3 text-sm font-medium text-center border-b-2 border-transparent text-gray-500"
                     data-tab="schedule">
                     การยืนยัน
                 </button>
-                <button class="tab-btn flex-1 px-3 py-3 text-sm font-medium text-center border-b-2 border-transparent text-gray-500"
+                <button
+                    class="tab-btn flex-1 px-3 py-3 text-sm font-medium text-center border-b-2 border-transparent text-gray-500"
                     data-tab="payment">
                     ชำระเงิน
                 </button>
@@ -49,7 +53,8 @@
             <div id="order-details" class="tab-content p-4">
                 <!-- Service Header -->
                 <div class="bg-white rounded-lg p-4 mb-4 flex items-center gap-3">
-                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <div
+                        class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h4a1 1 0 011 1v5m-6 0V9a1 1 0 011-1h4a1 1 0 011 1v11">
@@ -67,9 +72,12 @@
                     <div class="ac-item bg-white rounded-lg p-4" data-index="0">
                         <div class="flex justify-between items-center mb-3">
                             <h3 class="font-semibold text-gray-900">เครื่องปรับอากาศที่ 1</h3>
-                            <button type="button" onclick="removeAcItem(0)" class="text-red-600 hover:text-red-800 text-sm hidden">
+                            <button type="button" onclick="removeAcItem(0)"
+                                class="text-red-600 hover:text-red-800 text-sm hidden">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                    </path>
                                 </svg>
                             </button>
                         </div>
@@ -77,8 +85,11 @@
                         <div class="space-y-4">
                             <!-- Brand Selection -->
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">ยี่ห้อแอร์ <span class="text-red-500">*</span></label>
-                                <select name="ac_items[0][brand]" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">ยี่ห้อแอร์ <span
+                                        class="text-red-500">*</span></label>
+                                <select name="ac_items[0][brand]"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                                    required>
                                     <option value="">เลือกยี่ห้อ</option>
                                     <option value="Mitsubishi">Mitsubishi</option>
                                     <option value="Panasonic">Panasonic</option>
@@ -100,8 +111,11 @@
 
                             <!-- BTU Selection -->
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">ขนาด BTU <span class="text-red-500">*</span></label>
-                                <select name="ac_items[0][btu]" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500" onchange="updateAllPrices()" required>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">ขนาด BTU <span
+                                        class="text-red-500">*</span></label>
+                                <select name="ac_items[0][btu]"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                                    onchange="updateAllPrices()" required>
                                     <option value="">เลือกขนาด BTU</option>
                                     <option value="9000">9,000 BTU</option>
                                     <option value="12000">12,000 BTU</option>
@@ -121,16 +135,21 @@
                             <div class="flex justify-between items-center">
                                 <span class="text-sm font-medium text-gray-700">จำนวน (เครื่อง)</span>
                                 <div class="flex items-center gap-3">
-                                    <button type="button" onclick="changeQuantity(0, -1)" class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200">
+                                    <button type="button" onclick="changeQuantity(0, -1)"
+                                        class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M20 12H4"></path>
                                         </svg>
                                     </button>
                                     <span class="text-lg font-medium quantity-display" data-index="0">1</span>
-                                    <input type="hidden" name="ac_items[0][quantity]" value="1" class="quantity-input">
-                                    <button type="button" onclick="changeQuantity(0, 1)" class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200">
+                                    <input type="hidden" name="ac_items[0][quantity]" value="1"
+                                        class="quantity-input">
+                                    <button type="button" onclick="changeQuantity(0, 1)"
+                                        class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                         </svg>
                                     </button>
                                 </div>
@@ -141,9 +160,11 @@
                 </div>
 
                 <!-- Add More Button -->
-                <button type="button" onclick="addAcItem()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-4 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center gap-2">
+                <button type="button" onclick="addAcItem()"
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-4 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
                     เพิ่มเครื่องปรับอากาศ
                 </button>
@@ -171,7 +192,8 @@
                     </div>
                     <div class="border-t border-blue-200 mt-3 pt-3">
                         <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-600">จำนวนเครื่องทั้งหมด: <span id="total-units">0</span> เครื่อง</span>
+                            <span class="text-sm text-gray-600">จำนวนเครื่องทั้งหมด: <span id="total-units">0</span>
+                                เครื่อง</span>
                         </div>
                         <div class="flex justify-between items-center mt-2">
                             <span class="text-lg font-semibold text-gray-900">ราคารวมทั้งหมด</span>
@@ -197,24 +219,32 @@
 
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">ชื่อ <span class="text-red-500">*</span></label>
-                                <input type="text" name="customer_name" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">ชื่อ <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="customer_name"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">นามสกุล <span class="text-red-500">*</span></label>
-                                <input type="text" name="customer_lastname" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">นามสกุล <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="customer_lastname"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">อีเมล</label>
-                                <input type="email" name="customer_email" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <input type="email" name="customer_email"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">เบอร์โทรศัพท์ <span class="text-red-500">*</span></label>
-                                <input type="tel" name="customer_phone" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">เบอร์โทรศัพท์ <span
+                                        class="text-red-500">*</span></label>
+                                <input type="tel" name="customer_phone"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">หมายเลขโครงการที่</label>
-                                <input type="text" name="project_number" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <input type="text" name="project_number"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                         </div>
                     </div>
@@ -231,44 +261,58 @@
 
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">จังหวัด <span class="text-red-500">*</span></label>
-                                <input type="text" name="province" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">จังหวัด <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="province"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">เขต/อำเภอ <span class="text-red-500">*</span></label>
-                                <input type="text" name="district" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">เขต/อำเภอ <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="district"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">แขวง/ตำบล <span class="text-red-500">*</span></label>
-                                <input type="text" name="subdistrict" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">แขวง/ตำบล <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="subdistrict"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">รหัสไปรษณีย์ <span class="text-red-500">*</span></label>
-                                <input type="text" name="postal_code" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">รหัสไปรษณีย์ <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="postal_code"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">บ้านเลขที่ <span class="text-red-500">*</span></label>
-                                <input type="text" name="house_number" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">บ้านเลขที่ <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="house_number"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">หมู่ที่</label>
-                                <input type="text" name="village_number" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <input type="text" name="village_number"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                         </div>
 
                         <div class="mt-4">
                             <label class="block text-sm font-medium text-gray-700 mb-1">ชื่อหมู่บ้าน/อาคาร</label>
-                            <input type="text" name="building_name" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                            <input type="text" name="building_name"
+                                class="w-full border border-gray-300 rounded-md px-3 py-2">
                         </div>
 
                         <div class="grid grid-cols-2 gap-4 mt-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">ซอย</label>
-                                <input type="text" name="soi" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <input type="text" name="soi"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">ถนน</label>
-                                <input type="text" name="road" class="w-full border border-gray-300 rounded-md px-3 py-2">
+                                <input type="text" name="road"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2">
                             </div>
                         </div>
 
@@ -285,14 +329,20 @@
                         <div class="space-y-4">
                             <!-- Date Selection -->
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">เลือกวันที่ <span class="text-red-500">*</span></label>
-                                <input type="date" name="appointment_date" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">เลือกวันที่ <span
+                                        class="text-red-500">*</span></label>
+                                <input type="date" name="appointment_date"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                                    required>
                             </div>
 
                             <!-- Time Selection -->
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">เลือกช่วงเวลา <span class="text-red-500">*</span></label>
-                                <select name="appointment_time" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">เลือกช่วงเวลา <span
+                                        class="text-red-500">*</span></label>
+                                <select name="appointment_time"
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                                    required>
                                     <option value="">เลือกช่วงเวลา</option>
                                     <option value="08:00-12:00">08:00 - 12:00 น. (เช้า)</option>
                                     <option value="13:00-17:00">13:00 - 17:00 น. (บ่าย)</option>
@@ -303,7 +353,8 @@
                             <!-- Notes to Technician -->
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">หมายเหตุถึงทีมช่าง</label>
-                                <textarea name="technician_notes" rows="4" placeholder="ระบุข้อมูลเพิ่มเติม เช่น ที่จอดรถ, ทางเข้าอาคาร, เวลาที่สะดวก, ข้อควรระวัง..."
+                                <textarea name="technician_notes" rows="4"
+                                    placeholder="ระบุข้อมูลเพิ่มเติม เช่น ที่จอดรถ, ทางเข้าอาคาร, เวลาที่สะดวก, ข้อควรระวัง..."
                                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
                             </div>
                         </div>
@@ -311,12 +362,16 @@
                         <!-- Important Notice -->
                         <div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
                             <div class="flex items-start">
-                                <svg class="w-5 h-5 text-yellow-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                <svg class="w-5 h-5 text-yellow-600 mt-0.5 mr-2 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z">
+                                    </path>
                                 </svg>
                                 <div class="text-sm">
                                     <p class="font-medium text-yellow-800">ข้อมูลสำคัญ</p>
-                                    <p class="text-yellow-700 mt-1">• ทีมช่างจะติดต่อกลับเพื่อยืนยันการนัดหมายก่อนเดินทาง</p>
+                                    <p class="text-yellow-700 mt-1">• ทีมช่างจะติดต่อกลับเพื่อยืนยันการนัดหมายก่อนเดินทาง
+                                    </p>
                                     <p class="text-yellow-700">• สามารถเปลี่ยนแปลงนัดหมายได้โดยติดต่อ Call Center</p>
                                 </div>
                             </div>
@@ -326,29 +381,34 @@
                     <!-- Additional Options -->
                     <div class="bg-white rounded-lg p-4">
                         <h3 class="font-semibold text-gray-900 mb-4">ตัวเลือกเพิ่มเติม</h3>
-                        
+
                         <div class="space-y-4">
                             <!-- Tax Invoice Request -->
                             <div class="flex items-start space-x-3">
-                                <input type="checkbox" name="request_tax_invoice" id="request_tax_invoice" 
+                                <input type="checkbox" name="request_tax_invoice" id="request_tax_invoice"
                                     class="mt-1 rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                                 <label for="request_tax_invoice" class="text-sm text-gray-700">
                                     <span class="font-medium">ต้องการใบกำกับภาษี</span>
-                                    <p class="text-gray-600 mt-1">หากต้องการใบกำกับภาษี กรุณาติ๊กถูกและระบุข้อมูลบริษัทในหมายเหตุ</p>
+                                    <p class="text-gray-600 mt-1">หากต้องการใบกำกับภาษี
+                                        กรุณาติ๊กถูกและระบุข้อมูลบริษัทในหมายเหตุ</p>
                                 </label>
                             </div>
 
                             <!-- Terms and Privacy Policy -->
                             <div class="flex items-start space-x-3">
-                                <input type="checkbox" name="accept_terms" id="accept_terms" 
-                                    class="mt-1 rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" required>
+                                <input type="checkbox" name="accept_terms" id="accept_terms"
+                                    class="mt-1 rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                                    required>
                                 <label for="accept_terms" class="text-sm text-gray-700">
-                                    <span class="font-medium">ยอมรับข้อกำหนดและเงื่อนไข <span class="text-red-500">*</span></span>
+                                    <span class="font-medium">ยอมรับข้อกำหนดและเงื่อนไข <span
+                                            class="text-red-500">*</span></span>
                                     <p class="text-gray-600 mt-1">
                                         ข้าพเจ้ายอมรับ
-                                        <a href="{{ route('terms.conditions') }}" target="_blank" class="text-blue-600 underline hover:text-blue-800">ข้อกำหนดและเงื่อนไข</a>
+                                        <a href="{{ route('terms.conditions') }}" target="_blank"
+                                            class="text-blue-600 underline hover:text-blue-800">ข้อกำหนดและเงื่อนไข</a>
                                         และ
-                                        <a href="{{ route('privacy.policy') }}" target="_blank" class="text-blue-600 underline hover:text-blue-800">นโยบายความเป็นส่วนตัว</a>
+                                        <a href="{{ route('privacy.policy') }}" target="_blank"
+                                            class="text-blue-600 underline hover:text-blue-800">นโยบายความเป็นส่วนตัว</a>
                                         ของบริษัท
                                     </p>
                                 </label>
@@ -364,7 +424,7 @@
                     <!-- Contact Information -->
                     <div class="bg-white rounded-lg p-4">
                         <h3 class="font-semibold text-gray-900 mb-4">ข้อมูลการติดต่อ</h3>
-                        
+
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-600">ชื่อ-นามสกุล</span>
@@ -384,23 +444,27 @@
                     <!-- Service Information -->
                     <div class="bg-white rounded-lg p-4">
                         <h3 class="font-semibold text-gray-900 mb-4">ที่อยู่ในลงห์ของบริการ</h3>
-                        <p class="text-sm text-gray-600">64 ถนน ริมา มีเอี้ย ตำบล มานแหลนี้ย อำเภอมีไผปุ่ด นนทบุรี 11000</p>
+                        <p class="text-sm text-gray-600">64 ถนน ริมา มีเอี้ย ตำบล มานแหลนี้ย อำเภอมีไผปุ่ด นนทบุรี 11000
+                        </p>
                     </div>
 
                     <!-- Appointment Schedule -->
                     <div class="bg-white rounded-lg p-4">
                         <h3 class="font-semibold text-gray-900 mb-4">วันและเวลานัดบริการ</h3>
-                        
+
                         <div class="flex items-center gap-3 mb-2">
                             <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
                             </svg>
                             <span class="text-sm text-gray-900">เสาร์ที่ 16 ธ.ค. 2566</span>
                         </div>
-                        
+
                         <div class="flex items-center gap-3">
                             <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                             <span class="text-sm text-gray-900">13:00-17:00 น.</span>
                         </div>
@@ -415,10 +479,12 @@
                     <!-- Service Summary -->
                     <div class="bg-white rounded-lg p-4">
                         <h3 class="font-semibold text-gray-900 mb-4">รายการสนค่าเรือการบริการ</h3>
-                        
+
                         <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h4a1 1 0 011 1v5m-6 0V9a1 1 0 011-1h4a1 1 0 011 1v11">
                                     </path>
@@ -464,7 +530,7 @@
                     <!-- Stripe Payment Form -->
                     <div class="bg-white rounded-lg p-4">
                         <h3 class="font-semibold text-gray-900 mb-4">ชำระเงินด้วยบัตรเครดิต/เดบิต</h3>
-                        
+
                         <!-- Stripe Card Element Container -->
                         <form id="payment-form">
                             <div class="mb-4">
@@ -479,7 +545,8 @@
                             <div class="mb-4">
                                 <label class="block text-sm font-medium text-gray-700 mb-2">ชื่อผู้ถือบัตร</label>
                                 <input type="text" id="cardholder-name" placeholder="ชื่อตามที่ปรากฏบนบัตร"
-                                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                                    required>
                             </div>
 
                             <!-- Billing Address (if needed) -->
@@ -494,18 +561,28 @@
                             <!-- Security Information -->
                             <div class="bg-gray-50 rounded-lg p-4 mb-4">
                                 <div class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    <svg class="w-5 h-5 text-green-600 mt-0.5 mr-2 flex-shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                        </path>
                                     </svg>
                                     <div class="text-sm">
                                         <p class="font-medium text-gray-900">การชำระเงินปลอดภัย</p>
-                                        <p class="text-gray-600 mt-1">ข้อมูลบัตรของคุณได้รับการเข้ารหัสและปกป้องด้วย Stripe SSL</p>
+                                        <p class="text-gray-600 mt-1">ข้อมูลบัตรของคุณได้รับการเข้ารหัสและปกป้องด้วย Stripe
+                                            SSL</p>
                                         <div class="flex items-center gap-2 mt-2">
                                             <span class="text-xs text-gray-500">รองรับ:</span>
                                             <div class="flex gap-1">
-                                                <div class="w-8 h-5 bg-blue-600 rounded text-white text-xs flex items-center justify-center">VISA</div>
-                                                <div class="w-8 h-5 bg-red-600 rounded text-white text-xs flex items-center justify-center">MC</div>
-                                                <div class="w-8 h-5 bg-blue-800 rounded text-white text-xs flex items-center justify-center">AMEX</div>
+                                                <div
+                                                    class="w-8 h-5 bg-blue-600 rounded text-white text-xs flex items-center justify-center">
+                                                    VISA</div>
+                                                <div
+                                                    class="w-8 h-5 bg-red-600 rounded text-white text-xs flex items-center justify-center">
+                                                    MC</div>
+                                                <div
+                                                    class="w-8 h-5 bg-blue-800 rounded text-white text-xs flex items-center justify-center">
+                                                    AMEX</div>
                                             </div>
                                         </div>
                                     </div>
@@ -515,8 +592,10 @@
                             <!-- Test Mode Information -->
                             <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                                 <div class="flex items-start">
-                                    <svg class="w-5 h-5 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    <svg class="w-5 h-5 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                     <div class="text-sm">
                                         <p class="font-medium text-blue-900">🧪 โหมดทดสอบ</p>
@@ -533,11 +612,16 @@
                             </div>
 
                             <!-- Payment Processing Notice -->
-                            <div id="payment-processing" class="hidden bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                            <div id="payment-processing"
+                                class="hidden bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                                 <div class="flex items-center">
-                                    <svg class="animate-spin w-5 h-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24">
-                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    <svg class="animate-spin w-5 h-5 text-blue-600 mr-2" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10"
+                                            stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                        </path>
                                     </svg>
                                     <span class="text-blue-800 font-medium">กำลังดำเนินการชำระเงิน...</span>
                                 </div>
@@ -551,10 +635,12 @@
         <!-- Bottom Action Bar -->
         <div class="bg-white border-t p-4">
             <div class="flex gap-3">
-                <button id="prev-btn" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-3 px-4 rounded-lg hidden">
+                <button id="prev-btn"
+                    class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-3 px-4 rounded-lg hidden">
                     ยกเลิก
                 </button>
-                <button id="next-btn" class="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg">
+                <button id="next-btn"
+                    class="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg">
                     ถัดไป
                 </button>
             </div>
@@ -595,17 +681,20 @@
             if (index === 0) {
                 prevBtn.classList.add('hidden');
                 nextBtn.textContent = 'ถัดไป';
-                nextBtn.className = 'flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg';
+                nextBtn.className =
+                    'flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg';
             } else if (index === tabs.length - 1) {
                 prevBtn.classList.remove('hidden');
                 prevBtn.textContent = 'ยกเลิก';
                 updatePaymentButtonText();
-                nextBtn.className = 'flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg';
+                nextBtn.className =
+                    'flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg';
             } else {
                 prevBtn.classList.remove('hidden');
                 prevBtn.textContent = 'ยกเลิก';
                 nextBtn.textContent = 'ถัดไป';
-                nextBtn.className = 'flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg';
+                nextBtn.className =
+                    'flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-4 rounded-lg';
             }
 
             currentTab = index;
@@ -688,7 +777,7 @@
                     </div>
                 </div>
             `;
-            
+
             container.insertAdjacentHTML('beforeend', newItem);
             acItemIndex++;
             updateRemoveButtons();
@@ -719,13 +808,13 @@
         function changeQuantity(index, change) {
             const display = document.querySelector(`[data-index="${index}"].quantity-display`);
             const input = document.querySelector(`[name="ac_items[${index}][quantity]"]`);
-            
+
             let quantity = parseInt(input.value) + change;
             if (quantity < 1) quantity = 1;
-            
+
             display.textContent = quantity;
             input.value = quantity;
-            
+
             updateAllPrices();
         }
 
@@ -753,18 +842,18 @@
             const grandTotal = pricePerUnit * totalUnits;
             document.getElementById('grand-total').textContent = grandTotal.toLocaleString() + ' บาท';
             document.getElementById('total-units').textContent = totalUnits;
-            
+
             // Update payment tab summary
             const paymentTotalUnits = document.getElementById('payment-total-units');
             const paymentGrandTotal = document.getElementById('payment-grand-total');
-            
+
             if (paymentTotalUnits) {
                 paymentTotalUnits.textContent = totalUnits + ' เครื่อง';
             }
             if (paymentGrandTotal) {
                 paymentGrandTotal.textContent = grandTotal.toLocaleString() + ' บาท';
             }
-            
+
             // Update payment button text
             updatePaymentButtonText();
         }
@@ -809,7 +898,7 @@
                         }
                         currentTab = tempCurrentTab;
                     }
-                    
+
                     if (canProceed) {
                         showTab(index);
                     }
@@ -859,17 +948,46 @@
         }
 
         function validateLocation() {
-            const requiredFields = [
-                { name: 'customer_name', label: 'ชื่อ' },
-                { name: 'customer_lastname', label: 'นามสกุล' },
-                { name: 'customer_phone', label: 'เบอร์โทรศัพท์' },
-                { name: 'province', label: 'จังหวัด' },
-                { name: 'district', label: 'เขต/อำเภอ' },
-                { name: 'subdistrict', label: 'แขวง/ตำบล' },
-                { name: 'postal_code', label: 'รหัสไปรษณีย์' },
-                { name: 'house_number', label: 'บ้านเลขที่' },
-                { name: 'appointment_date', label: 'วันที่นัดหมาย' },
-                { name: 'appointment_time', label: 'เวลานัดหมาย' }
+            const requiredFields = [{
+                    name: 'customer_name',
+                    label: 'ชื่อ'
+                },
+                {
+                    name: 'customer_lastname',
+                    label: 'นามสกุล'
+                },
+                {
+                    name: 'customer_phone',
+                    label: 'เบอร์โทรศัพท์'
+                },
+                {
+                    name: 'province',
+                    label: 'จังหวัด'
+                },
+                {
+                    name: 'district',
+                    label: 'เขต/อำเภอ'
+                },
+                {
+                    name: 'subdistrict',
+                    label: 'แขวง/ตำบล'
+                },
+                {
+                    name: 'postal_code',
+                    label: 'รหัสไปรษณีย์'
+                },
+                {
+                    name: 'house_number',
+                    label: 'บ้านเลขที่'
+                },
+                {
+                    name: 'appointment_date',
+                    label: 'วันที่นัดหมาย'
+                },
+                {
+                    name: 'appointment_time',
+                    label: 'เวลานัดหมาย'
+                }
             ];
 
             for (let field of requiredFields) {
@@ -887,7 +1005,7 @@
                 const selectedDate = new Date(appointmentDate);
                 const today = new Date();
                 today.setHours(0, 0, 0, 0); // Reset time to beginning of day
-                
+
                 if (selectedDate < today) {
                     alert('ไม่สามารถเลือกวันที่ในอดีตได้');
                     document.querySelector('[name="appointment_date"]').focus();
@@ -946,12 +1064,12 @@
 
         // Initialize Stripe
         let stripe, elements, cardElement;
-        
+
         // Demo card form creation function
         function createDemoCardForm() {
             const cardElement = document.getElementById('card-element');
             if (!cardElement) return;
-            
+
             cardElement.innerHTML = `
                 <div class="space-y-4">
                     <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
@@ -1007,25 +1125,25 @@
                     </div>
                 </div>
             `;
-            
+
             // Add event listeners after creating the form
             setTimeout(() => {
                 const cardInput = document.getElementById('demo-card-number');
                 const expiryInput = document.getElementById('demo-expiry');
                 const cvcInput = document.getElementById('demo-cvc');
-                
+
                 if (cardInput) {
                     cardInput.addEventListener('input', function() {
                         formatCardNumber(this);
                     });
                 }
-                
+
                 if (expiryInput) {
                     expiryInput.addEventListener('input', function() {
                         formatExpiry(this);
                     });
                 }
-                
+
                 if (cvcInput) {
                     cvcInput.addEventListener('input', function() {
                         this.value = this.value.replace(/[^0-9]/g, '');
@@ -1040,7 +1158,7 @@
             let formattedInputValue = value.match(/.{1,4}/g)?.join(' ') || value;
             input.value = formattedInputValue;
         }
-        
+
         function formatExpiry(input) {
             let value = input.value.replace(/\D/g, '');
             if (value.length >= 2) {
@@ -1048,13 +1166,13 @@
             }
             input.value = value;
         }
-        
+
         // Payment processing function
         async function processPayment() {
             const cardholderName = document.getElementById('cardholder-name').value.trim();
             const nextBtn = document.getElementById('next-btn') || document.getElementById('payment-button');
             const paymentProcessing = document.getElementById('payment-processing');
-            
+
             if (!cardholderName) {
                 alert('กรุณากรอกชื่อผู้ถือบัตร');
                 document.getElementById('cardholder-name').focus();
@@ -1077,43 +1195,49 @@
                     const demoCardNumber = document.getElementById('demo-card-number')?.value || '';
                     const demoExpiry = document.getElementById('demo-expiry')?.value || '';
                     const demoCvc = document.getElementById('demo-cvc')?.value || '';
-                    
+
                     // Basic validation for demo
                     const cleanCardNumber = demoCardNumber.replace(/\s/g, '');
                     if (cleanCardNumber.length < 13) {
-                        alert('กรุณากรอกหมายเลขบัตรให้ครบถ้วน (อย่างน้อย 13 หลัก)\n\nบัตรทดสอบ:\n• 4242 4242 4242 4242 (VISA)\n• 5555 5555 5555 4444 (Mastercard)');
+                        alert(
+                            'กรุณากรอกหมายเลขบัตรให้ครบถ้วน (อย่างน้อย 13 หลัก)\n\nบัตรทดสอบ:\n• 4242 4242 4242 4242 (VISA)\n• 5555 5555 5555 4444 (Mastercard)');
                         document.getElementById('demo-card-number')?.focus();
                         throw new Error('Invalid card number');
                     }
-                    
+
                     const cleanExpiry = demoExpiry.replace(/\s/g, '');
                     if (cleanExpiry.length < 5 || !cleanExpiry.includes('/')) {
                         alert('กรุณากรอกวันหมดอายุให้ถูกต้อง (MM/YY)\nตัวอย่าง: 12/28');
                         document.getElementById('demo-expiry')?.focus();
                         throw new Error('Invalid expiry date');
                     }
-                    
+
                     if (demoCvc.length < 3) {
                         alert('กรุณากรอก CVC ให้ครบถ้วน (3-4 หลัก)\nตัวอย่าง: 123');
                         document.getElementById('demo-cvc')?.focus();
                         throw new Error('Invalid CVC');
                     }
-                    
+
                     // Demo mode - simulate payment processing
                     console.log('Demo mode: Simulating payment processing');
                     console.log('Card Number:', demoCardNumber);
                     console.log('Expiry:', demoExpiry);
                     console.log('CVC:', demoCvc);
-                    
+
                     setTimeout(() => {
-                        alert('ชำระเงินสำเร็จ! (Demo Mode)\nหมายเลขรายการ: #DEMO' + Math.random().toString(36).substr(2, 6).toUpperCase() + '\nนี่เป็นการจำลองการชำระเงิน\n\nข้อมูลบัตร: ' + demoCardNumber);
-                        
+                        alert('ชำระเงินสำเร็จ! (Demo Mode)\nหมายเลขรายการ: #DEMO' + Math.random().toString(36)
+                            .substr(2, 6).toUpperCase() + '\nนี่เป็นการจำลองการชำระเงิน\n\nข้อมูลบัตร: ' +
+                            demoCardNumber);
+
                         // In real application, redirect to success page
                         // window.location.href = '/order/success/' + orderId;
                     }, 2000);
                 } else {
                     // Real Stripe processing
-                    const {token, error} = await stripe.createToken(cardElement, {
+                    const {
+                        token,
+                        error
+                    } = await stripe.createToken(cardElement, {
                         name: cardholderName,
                     });
 
@@ -1123,15 +1247,16 @@
 
                     // Here you would normally send the token to your server
                     console.log('Stripe token:', token);
-                    
+
                     setTimeout(() => {
-                        alert('ชำระเงินสำเร็จ!\nหมายเลขรายการ: #' + Math.random().toString(36).substr(2, 9).toUpperCase() + '\nระบบจะส่งอีเมลยืนยันภายใน 5 นาที');
-                        
+                        alert('ชำระเงินสำเร็จ!\nหมายเลขรายการ: #' + Math.random().toString(36).substr(2, 9)
+                            .toUpperCase() + '\nระบบจะส่งอีเมลยืนยันภายใน 5 นาที');
+
                         // In real application, redirect to success page
                         // window.location.href = '/order/success/' + orderId;
                     }, 2000);
                 }
-                
+
             } catch (error) {
                 alert('เกิดข้อผิดพลาดในการชำระเงิน: ' + error.message);
                 console.error('Payment error:', error);
@@ -1154,17 +1279,18 @@
             showTab(0);
             updateRemoveButtons();
             updateAllPrices();
-            
+
             // Set minimum date to today
             const today = new Date().toISOString().split('T')[0];
             document.querySelector('[name="appointment_date"]').setAttribute('min', today);
-            
+
             // Create demo card form immediately (don't wait for Stripe)
             createDemoCardForm();
-            
+
             // Initialize Stripe elements (Test Mode) - optional for real integration
-            const stripeKey = 'pk_test_51IabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; // ตัวอย่าง - ต้องเปลี่ยนเป็น key จริง
-            
+            const stripeKey =
+            'pk_test_51IabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; // ตัวอย่าง - ต้องเปลี่ยนเป็น key จริง
+
             // Wait for Stripe.js to load and initialize (for future real integration)
             function initializeStripe() {
                 // Check if Stripe is available
@@ -1173,9 +1299,10 @@
                     console.log('Stripe not loaded, using demo form');
                     return;
                 }
-                
+
                 // Only initialize real Stripe if we have a real key (future enhancement)
-                if (stripeKey && stripeKey !== 'pk_test_51IabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890') {
+                if (stripeKey && stripeKey !==
+                    'pk_test_51IabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890') {
                     try {
                         stripe = Stripe(stripeKey);
                         elements = stripe.elements();
@@ -1211,7 +1338,7 @@
                                 displayError.classList.add('hidden');
                             }
                         });
-                        
+
                         console.log('Real Stripe initialized successfully');
                     } catch (error) {
                         console.error('Stripe initialization error:', error);
@@ -1221,7 +1348,7 @@
                     console.log('Using demo form (no real Stripe key provided)');
                 }
             }
-            
+
             // Start Stripe initialization (optional)
             setTimeout(initializeStripe, 1000);
         });
