@@ -127,6 +127,9 @@ Route::prefix('control-panel')->name('admin.')->middleware(['auth', \App\Http\Mi
     // Product Management
     Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
 
+    // Service Management
+    Route::resource('services', 'App\Http\Controllers\Admin\ServiceController');
+
     // User Management
     Route::resource('users', 'App\Http\Controllers\Admin\UserController')->except(['create', 'store', 'show']);
 });
