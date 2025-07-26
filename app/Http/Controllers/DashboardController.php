@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Product;
 use App\Models\Promotion;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -86,18 +87,72 @@ class DashboardController extends Controller
         return view('app.promotions', compact('promotions'));
     }
 
-    public function products()
+    public function products(Request $request)
     {
-        $products = Product::active()
-            ->ordered()
-            ->get();
+        $query = Product::active();
+
+        // Search functionality
+        if ($request->filled('search')) {
+            $searchTerm = $request->search;
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'like', "%{$searchTerm}%")
+                  ->orWhere('brand', 'like', "%{$searchTerm}%")
+                  ->orWhere('model', 'like', "%{$searchTerm}%")
+                  ->orWhere('btu', 'like', "%{$searchTerm}%")
+                  ->orWhere('description', 'like', "%{$searchTerm}%");
+            });
+        }
+
+        // Category filter
+        if ($request->filled('category') && $request->category !== 'all') {
+            $query->where('category', $request->category);
+        }
+
+        // Brand filter
+        if ($request->filled('brand')) {
+            $query->where('brand', $request->brand);
+        }
+
+        // Price range filter
+        if ($request->filled('min_price')) {
+            $query->where('price', '>=', $request->min_price);
+        }
+        if ($request->filled('max_price')) {
+            $query->where('price', '<=', $request->max_price);
+        }
+
+        // Sorting
+        switch ($request->get('sort', 'featured')) {
+            case 'price_low':
+                $query->orderBy('price', 'asc');
+                break;
+            case 'price_high':
+                $query->orderBy('price', 'desc');
+                break;
+            case 'newest':
+                $query->orderBy('created_at', 'desc');
+                break;
+            case 'popular':
+                // Assuming we track popularity somehow, for now use featured
+                $query->orderBy('is_featured', 'desc')->orderBy('sort_order', 'asc');
+                break;
+            default: // featured
+                $query->orderBy('is_featured', 'desc')->orderBy('sort_order', 'asc');
+                break;
+        }
+
+        $products = $query->get();
 
         $promotions = Promotion::active()
             ->current()
             ->ordered()
             ->get();
 
-        return view('app.products', compact('products', 'promotions'));
+        // Get available categories and brands for filter options
+        $categories = Product::active()->distinct()->pluck('category')->filter();
+        $brands = Product::active()->distinct()->pluck('brand')->filter();
+
+        return view('app.products', compact('products', 'promotions', 'categories', 'brands'));
     }
 
     public function productDetail($productId)
