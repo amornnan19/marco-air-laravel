@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            
+
             // Basic Information
             $table->string('name');
             $table->string('model')->nullable();
@@ -21,20 +21,20 @@ return new class extends Migration
             $table->string('btu')->nullable();
             $table->decimal('price', 10, 2);
             $table->string('image')->nullable();
-            
+
             // Detailed Information
             $table->longText('description')->nullable();
             $table->json('features')->nullable();
             $table->json('specifications')->nullable();
             $table->string('category')->nullable();
-            
+
             // Status & Management
             $table->boolean('is_active')->default(true);
             $table->boolean('is_featured')->default(false);
             $table->integer('sort_order')->default(0);
-            
+
             $table->timestamps();
-            
+
             // Indexes
             $table->index(['is_active', 'sort_order']);
             $table->index(['category', 'is_active']);

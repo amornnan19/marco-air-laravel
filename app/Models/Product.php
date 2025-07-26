@@ -60,14 +60,13 @@ class Product extends Model
     // Accessors
     public function getImageUrlAttribute(): ?string
     {
-        return $this->image ? asset('storage/' . $this->image) : null;
+        return $this->image ? asset('storage/'.$this->image) : null;
     }
 
     public function getFormattedPriceAttribute(): string
     {
-        return '฿ ' . number_format($this->price, 0);
+        return '฿ '.number_format($this->price, 0);
     }
-
 
     // Helper methods
     public function isActive(): bool

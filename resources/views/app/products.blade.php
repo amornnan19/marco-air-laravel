@@ -43,27 +43,29 @@
         <!-- Main Content -->
         <main class="flex-1 max-w-md mx-auto px-4 pb-20 overflow-y-auto">
             <!-- Promotion Banner -->
-            @if($promotions && $promotions->count() > 0)
+            @if ($promotions && $promotions->count() > 0)
                 <div class="py-4">
                     <div class="relative bg-white rounded-lg shadow-sm overflow-hidden">
                         <!-- Promotion Carousel -->
                         <div class="relative h-48 overflow-hidden">
-                            @foreach($promotions as $index => $promotion)
-                                <div class="promotion-slide absolute inset-0 transition-transform duration-300 ease-in-out {{ $index === 0 ? 'translate-x-0' : 'translate-x-full' }}" 
-                                     data-slide="{{ $index }}">
-                                    @if($promotion->image)
+                            @foreach ($promotions as $index => $promotion)
+                                <div class="promotion-slide absolute inset-0 transition-transform duration-300 ease-in-out {{ $index === 0 ? 'translate-x-0' : 'translate-x-full' }}"
+                                    data-slide="{{ $index }}">
+                                    @if ($promotion->image)
                                         <img src="{{ $promotion->image_url }}" alt="{{ $promotion->title }}"
                                             class="w-full h-48 object-cover">
                                     @else
-                                        <div class="w-full h-48 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                                        <div
+                                            class="w-full h-48 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
                                             <div class="text-center text-white p-6">
                                                 <h3 class="text-lg font-bold mb-2">{{ $promotion->title }}</h3>
-                                                <p class="text-sm opacity-90">{{ Str::limit(strip_tags($promotion->content), 100) }}</p>
+                                                <p class="text-sm opacity-90">
+                                                    {{ Str::limit(strip_tags($promotion->content), 100) }}</p>
                                             </div>
                                         </div>
                                     @endif
-                                    
-                                    @if($promotion->link_url && $promotion->button_text)
+
+                                    @if ($promotion->link_url && $promotion->button_text)
                                         <div class="absolute inset-0 bg-black/20 flex items-end">
                                             <div class="p-4 w-full">
                                                 <button onclick="window.open('{{ $promotion->link_url }}', '_blank')"
@@ -76,30 +78,35 @@
                                 </div>
                             @endforeach
                         </div>
-                        
+
                         <!-- Carousel Indicators -->
-                        @if($promotions->count() > 1)
+                        @if ($promotions->count() > 1)
                             <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
                                 <div class="flex space-x-2">
-                                    @foreach($promotions as $index => $promotion)
-                                        <button class="indicator w-2 h-2 rounded-full transition-colors {{ $index === 0 ? 'bg-white' : 'bg-white/50' }}"
-                                                onclick="showSlide({{ $index }})"
-                                                data-indicator="{{ $index }}"></button>
+                                    @foreach ($promotions as $index => $promotion)
+                                        <button
+                                            class="indicator w-2 h-2 rounded-full transition-colors {{ $index === 0 ? 'bg-white' : 'bg-white/50' }}"
+                                            onclick="showSlide({{ $index }})"
+                                            data-indicator="{{ $index }}"></button>
                                     @endforeach
                                 </div>
                             </div>
-                            
+
                             <!-- Navigation Arrows -->
-                            <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
-                                    onclick="prevSlide()">
+                            <button
+                                class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                                onclick="prevSlide()">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7"></path>
                                 </svg>
                             </button>
-                            <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
-                                    onclick="nextSlide()">
+                            <button
+                                class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+                                onclick="nextSlide()">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                    </path>
                                 </svg>
                             </button>
                         @endif
@@ -162,22 +169,22 @@
             <!-- Product Grid -->
             <div class="py-4">
                 <div class="grid grid-cols-2 gap-4">
-                    @foreach($products as $product)
+                    @foreach ($products as $product)
                         <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
                             onclick="window.location.href='{{ route('product.detail', $product->id) }}'">
-                            @if($product->image)
+                            @if ($product->image)
                                 <img src="{{ $product->image_url }}" alt="{{ $product->name }}"
                                     class="w-full h-32 object-cover">
                             @else
-                                <img src="https://placehold.co/200x150/E5E7EB/6B7280?text={{ urlencode($product->brand . '+' . $product->name) }}" 
+                                <img src="https://placehold.co/200x150/E5E7EB/6B7280?text={{ urlencode($product->brand . '+' . $product->name) }}"
                                     alt="{{ $product->name }}" class="w-full h-32 object-cover">
                             @endif
                             <div class="p-3">
                                 <h3 class="font-bold text-gray-900 text-sm mb-1">{{ $product->name }}</h3>
-                                @if($product->model)
+                                @if ($product->model)
                                     <p class="text-xs text-gray-600 mb-1">{{ $product->model }}</p>
                                 @endif
-                                @if($product->btu)
+                                @if ($product->btu)
                                     <p class="text-xs text-gray-600 mb-2">{{ $product->btu }}</p>
                                 @endif
                                 <p class="text-red-600 font-bold text-sm">{{ $product->formatted_price }}</p>
@@ -192,36 +199,36 @@
         @include('components.sticky-bottom-navigation')
     </div>
 
-    @if($promotions && $promotions->count() > 1)
+    @if ($promotions && $promotions->count() > 1)
         <script>
             let currentSlide = 0;
             const totalSlides = {{ $promotions->count() }};
-            
+
             function showSlide(index) {
                 currentSlide = index;
-                
+
                 // Hide all slides
                 document.querySelectorAll('.promotion-slide').forEach((slide, i) => {
                     slide.style.transform = i === index ? 'translateX(0)' : 'translateX(100%)';
                 });
-                
+
                 // Update indicators
                 document.querySelectorAll('.indicator').forEach((indicator, i) => {
                     indicator.classList.toggle('bg-white', i === index);
                     indicator.classList.toggle('bg-white/50', i !== index);
                 });
             }
-            
+
             function nextSlide() {
                 currentSlide = (currentSlide + 1) % totalSlides;
                 showSlide(currentSlide);
             }
-            
+
             function prevSlide() {
                 currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
                 showSlide(currentSlide);
             }
-            
+
             // Auto-play carousel every 5 seconds
             setInterval(() => {
                 nextSlide();

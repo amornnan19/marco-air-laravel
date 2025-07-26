@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Product;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -29,7 +28,7 @@ class ProductSeeder extends Seeder
                     '24 ชม. ION สามารถสร้างประจุลบ 24 ชั่วโมง',
                     'Silicone Coating ป้องกันความชื้น',
                     'Epoxy Coating ป้องกันสารกรดจากอากาศ',
-                    'Self Cleaning Operation ฟังก์ชันทำความสะอาดอัตโนมัติ'
+                    'Self Cleaning Operation ฟังก์ชันทำความสะอาดอัตโนมัติ',
                 ],
                 'specifications' => [
                     'ขนาดความเย็น' => '15,480 BTU/hr',
@@ -37,7 +36,7 @@ class ProductSeeder extends Seeder
                     'สารทำความเย็น' => 'R32',
                     'แรงดันไฟฟ้า' => '220V',
                     'ระดับพัดลม' => '5 ระดับ',
-                    'รับประกัน' => '5 ปี'
+                    'รับประกัน' => '5 ปี',
                 ],
                 'category' => 'แอร์บ้าน',
                 'is_active' => true,
@@ -55,13 +54,13 @@ class ProductSeeder extends Seeder
                     'ระบบ Inverter ประหยัดไฟ',
                     'ระบบกรองอากาศ',
                     'รีโมทคอนโทรล',
-                    'ระบบฟอกอากาศ'
+                    'ระบบฟอกอากาศ',
                 ],
                 'specifications' => [
                     'ขนาดความเย็น' => '12,000 BTU/hr',
                     'ระบบ' => 'Inverter',
                     'แรงดันไฟฟ้า' => '220V',
-                    'รับประกัน' => '3 ปี'
+                    'รับประกัน' => '3 ปี',
                 ],
                 'category' => 'แอร์บ้าน',
                 'is_active' => true,
@@ -79,14 +78,14 @@ class ProductSeeder extends Seeder
                     'เทคโนโลยี Inverter แท้',
                     'ระบบกรองอากาศ PM2.5',
                     'เงียบพิเศษ',
-                    'ประหยัดไฟเบอร์ 5'
+                    'ประหยัดไฟเบอร์ 5',
                 ],
                 'specifications' => [
                     'ขนาดความเย็น' => '9,000 BTU/hr',
                     'ระบบ' => 'Inverter',
                     'แรงดันไฟฟ้า' => '220V',
                     'ระดับเสียง' => '19 dB',
-                    'รับประกัน' => '5 ปี'
+                    'รับประกัน' => '5 ปี',
                 ],
                 'category' => 'แอร์บ้าน',
                 'is_active' => true,
@@ -104,13 +103,13 @@ class ProductSeeder extends Seeder
                     'Dual Inverter Compressor',
                     'เย็นเร็วกว่า 40%',
                     'ประหยัดไฟมากกว่า 70%',
-                    'ระบบกรองอากาศ 6 ขั้นตอน'
+                    'ระบบกรองอากาศ 6 ขั้นตอน',
                 ],
                 'specifications' => [
                     'ขนาดความเย็น' => '12,000 BTU/hr',
                     'ระบบ' => 'Dual Inverter',
                     'แรงดันไฟฟ้า' => '220V',
-                    'รับประกัน' => '10 ปี (คอมเพรสเซอร์)'
+                    'รับประกัน' => '10 ปี (คอมเพรสเซอร์)',
                 ],
                 'category' => 'แอร์บ้าน',
                 'is_active' => true,
@@ -128,14 +127,14 @@ class ProductSeeder extends Seeder
                     'เทคโนโลยี WindFree',
                     'Digital Inverter 8-Pole',
                     'ระบบกรอง HD Filter',
-                    'Wi-Fi Smart Control'
+                    'Wi-Fi Smart Control',
                 ],
                 'specifications' => [
                     'ขนาดความเย็น' => '12,000 BTU/hr',
                     'ระบบ' => 'Digital Inverter',
                     'แรงดันไฟฟ้า' => '220V',
                     'การเชื่อมต่อ' => 'Wi-Fi',
-                    'รับประกัน' => '10 ปี'
+                    'รับประกัน' => '10 ปี',
                 ],
                 'category' => 'แอร์บ้าน',
                 'is_active' => true,
@@ -153,14 +152,14 @@ class ProductSeeder extends Seeder
                     'เทคโนโลยี nanoe-G',
                     'ECONAVI Sensor',
                     'ระบบกรอง PM2.5',
-                    'iAUTO-X ปรับอุณหภูมิอัตโนมัติ'
+                    'iAUTO-X ปรับอุณหภูมิอัตโนมัติ',
                 ],
                 'specifications' => [
                     'ขนาดความเย็น' => '12,000 BTU/hr',
                     'ระบบ' => 'Inverter',
                     'แรงดันไฟฟ้า' => '220V',
                     'เทคโนโลยี' => 'nanoe-G',
-                    'รับประกัน' => '5 ปี'
+                    'รับประกัน' => '5 ปี',
                 ],
                 'category' => 'แอร์บ้าน',
                 'is_active' => true,
@@ -178,13 +177,13 @@ class ProductSeeder extends Seeder
                     'ระบบ Inverter',
                     'รีโมทคอนโทรล',
                     'ระบบกรองอากาศ',
-                    'การรับประกัน 3 ปี'
+                    'การรับประกัน 3 ปี',
                 ],
                 'specifications' => [
                     'ขนาดความเย็น' => '12,000 BTU/hr',
                     'ระบบ' => 'Inverter',
                     'แรงดันไฟฟ้า' => '220V',
-                    'รับประกัน' => '3 ปี'
+                    'รับประกัน' => '3 ปี',
                 ],
                 'category' => 'แอร์บ้าน',
                 'is_active' => true,
@@ -202,20 +201,20 @@ class ProductSeeder extends Seeder
                     'X-Series Technology',
                     'Tropical Inverter',
                     'ระบบกรองอากาศขั้นสูง',
-                    'ทนทานในสภาพอากาศร้อน'
+                    'ทนทานในสภาพอากาศร้อน',
                 ],
                 'specifications' => [
                     'ขนาดความเย็น' => '12,000 BTU/hr',
                     'ระบบ' => 'Tropical Inverter',
                     'แรงดันไฟฟ้า' => '220V',
                     'การทำงาน' => 'สำหรับอากาศร้อน',
-                    'รับประกัน' => '5 ปี'
+                    'รับประกัน' => '5 ปี',
                 ],
                 'category' => 'แอร์บ้าน',
                 'is_active' => true,
                 'is_featured' => false,
                 'sort_order' => 8,
-            ]
+            ],
         ];
 
         foreach ($products as $productData) {

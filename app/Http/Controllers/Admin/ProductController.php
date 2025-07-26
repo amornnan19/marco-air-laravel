@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
@@ -28,7 +27,7 @@ class ProductController extends Controller
             'แอร์โรงงาน',
             'แอร์ติดรถยนต์',
             'อะไหล่แอร์',
-            'อุปกรณ์แอร์'
+            'อุปกรณ์แอร์',
         ];
 
         $brands = [
@@ -41,7 +40,7 @@ class ProductController extends Controller
             'Central Air',
             'Tanin',
             'York',
-            'Fujitsu'
+            'Fujitsu',
         ];
 
         return view('admin.products.create', compact('categories', 'brands'));
@@ -101,7 +100,7 @@ class ProductController extends Controller
             'แอร์โรงงาน',
             'แอร์ติดรถยนต์',
             'อะไหล่แอร์',
-            'อุปกรณ์แอร์'
+            'อุปกรณ์แอร์',
         ];
 
         $brands = [
@@ -114,7 +113,7 @@ class ProductController extends Controller
             'Central Air',
             'Tanin',
             'York',
-            'Fujitsu'
+            'Fujitsu',
         ];
 
         return view('admin.products.edit', compact('product', 'categories', 'brands'));
@@ -154,7 +153,7 @@ class ProductController extends Controller
             if ($product->image) {
                 Storage::disk('public')->delete($product->image);
             }
-            
+
             $imagePath = $request->file('image')->store('products', 'public');
             $validated['image'] = $imagePath;
         }
@@ -194,7 +193,7 @@ class ProductController extends Controller
         // Split by new lines and filter empty lines
         $items = array_filter(
             array_map('trim', explode("\n", $input)),
-            fn($item) => !empty($item)
+            fn ($item) => ! empty($item)
         );
 
         return array_values($items);
@@ -209,13 +208,13 @@ class ProductController extends Controller
         $specifications = [];
         $lines = array_filter(
             array_map('trim', explode("\n", $input)),
-            fn($line) => !empty($line)
+            fn ($line) => ! empty($line)
         );
 
         foreach ($lines as $line) {
             if (strpos($line, ':') !== false) {
                 [$key, $value] = array_map('trim', explode(':', $line, 2));
-                if (!empty($key) && !empty($value)) {
+                if (! empty($key) && ! empty($value)) {
                     $specifications[$key] = $value;
                 }
             }
