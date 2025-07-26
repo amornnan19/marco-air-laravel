@@ -20,230 +20,201 @@
                         </div>
                     @endif
                     <div>
-                        <h1 class="font-bold text-lg">สวัสดีคุณ {{ auth()->user()->first_name ?? auth()->user()->name }}
-                        </h1>
-                        <h2 class="text-white/80 text-sm">{{ auth()->user()->name }}</h2>
+                        <h1 class="text-white/80 text-sm">ยินดีต้อนรับ</h1>
+                        <h2 class="font-bold text-lg">คุณ {{ auth()->user()->first_name ?? auth()->user()->name }}</h2>
+                    </div>
+                </div>
+                <div class="relative">
+                    <button class="p-2">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 17h5l-5 5-5-5h5v-5a7.5 7.5 0 00-15 0v5h5l-5 5-5-5h5V7a9.5 9.5 0 0119 0v10z"></path>
+                        </svg>
+                    </button>
+                    <!-- Notification Badge -->
+                    <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                        2
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Main Content -->
-        <main class="flex-1 max-w-md mx-auto px-4 pb-20 overflow-y-auto">
-            <!-- Special Offers Section -->
-            <div class="py-4">
-                <div class="flex items-center justify-between mb-3">
-                    <h3 class="text-lg font-bold text-gray-900">ข้อเสนอพิเศษ</h3>
-                    <a href="{{ route('promotions.index') }}" class="text-blue-600 text-sm font-medium">ดูทั้งหมด</a>
+        <main class="flex-1 pb-20 overflow-y-auto overflow-x-hidden">
+            <!-- Content Container -->
+            <div class="max-w-md mx-auto">
+                <!-- Special Offers Section -->
+                <div class="py-4 px-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-lg font-bold text-gray-900">ข้อเสนอพิเศษ</h3>
+                        <a href="{{ route('promotions.index') }}" class="text-blue-600 text-sm font-medium">ดูทั้งหมด</a>
+                    </div>
                 </div>
 
                 <!-- Promotion Carousel -->
-                <div id="promotion-carousel" class="overflow-x-auto scrollbar-hide cursor-grab">
-                    <div class="flex gap-4 w-max">
-                        @forelse($promotions as $promotion)
-                            <div class="rounded-lg w-72 h-48 relative overflow-hidden cursor-pointer shadow-lg"
-                                onclick="window.location.href='{{ route('promotion.show', $promotion) }}'">
-                                @if ($promotion->image)
-                                    <img src="{{ $promotion->image_url }}" alt="{{ $promotion->title }}"
-                                        class="w-full h-full object-cover">
-                                @else
-                                    <!-- Fallback gradient if no image -->
-                                    <div
-                                        class="w-full h-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
-                                        <div class="text-center text-white">
-                                            <h4 class="font-bold text-lg mb-2">{{ $promotion->title }}</h4>
-                                            <p class="text-white/80 text-sm">
-                                                {{ Str::limit(strip_tags($promotion->content), 60) }}</p>
+                <div class="py-2 px-4">
+                    <div id="promotion-carousel" class="overflow-x-auto scrollbar-hide cursor-grab">
+                        <div class="flex gap-4 w-max">
+                            @forelse($promotions as $promotion)
+                                <div class="rounded-lg w-72 h-48 relative overflow-hidden cursor-pointer shadow-lg flex-shrink-0"
+                                    onclick="window.location.href='{{ route('promotion.show', $promotion) }}'">
+                                    @if ($promotion->image)
+                                        <img src="{{ $promotion->image_url }}" alt="{{ $promotion->title }}"
+                                            class="w-full h-full object-cover">
+                                    @else
+                                        <!-- Fallback gradient if no image -->
+                                        <div
+                                            class="w-full h-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                                            <div class="text-center text-white">
+                                                <h4 class="font-bold text-lg mb-2">{{ $promotion->title }}</h4>
+                                                <p class="text-white/80 text-sm">
+                                                    {{ Str::limit(strip_tags($promotion->content), 60) }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
-                                @if ($promotion->image)
-                                    <!-- Overlay for better text readability -->
-                                    <div class="absolute inset-0 bg-black/20"></div>
-                                    <!-- Title overlay -->
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                                        <h4 class="font-bold text-white text-lg">{{ $promotion->title }}</h4>
+                                    @if ($promotion->image)
+                                        <!-- Overlay for better text readability -->
+                                        <div class="absolute inset-0 bg-black/20"></div>
+                                        <!-- Title overlay -->
+                                        <div
+                                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                                            <h4 class="font-bold text-white text-lg">{{ $promotion->title }}</h4>
+                                        </div>
+                                    @endif
+                                </div>
+                            @empty
+                                <div
+                                    class="bg-gradient-to-r from-gray-400 to-gray-500 rounded-lg p-4 w-72 text-white relative overflow-hidden flex-shrink-0">
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-lg mb-2">ไม่มีโปรโมชั่น</h4>
+                                        <p class="text-white/80 text-sm mb-3">ขณะนี้ยังไม่มีโปรโมชั่นพิเศษ</p>
                                     </div>
-                                @endif
-                            </div>
-                        @empty
-                            <div
-                                class="bg-gradient-to-r from-gray-400 to-gray-500 rounded-lg p-4 w-72 text-white relative overflow-hidden">
-                                <div class="relative z-10">
-                                    <h4 class="font-bold text-lg mb-2">ไม่มีโปรโมชั่น</h4>
-                                    <p class="text-white/80 text-sm mb-3">ขณะนี้ยังไม่มีโปรโมชั่นพิเศษ</p>
+                                </div>
+                            @endforelse
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Section -->
+                <div class="py-4 px-4">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">บริการ</h3>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <!-- Service 1 -->
+                        <div class="bg-blue-100 rounded-lg p-4 text-center">
+                            <div class="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z"/>
+                                    </svg>
                                 </div>
                             </div>
-                        @endforelse
+                            <span class="text-sm text-gray-800 font-medium">ล้างแอร์</span>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div class="bg-green-100 rounded-lg p-4 text-center">
+                            <div class="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
+                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-800 font-medium">ซ่อมแอร์</span>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="bg-orange-100 rounded-lg p-4 text-center">
+                            <div class="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
+                                <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-800 font-medium">ติดตั้งแอร์ย้ายแอร์</span>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="bg-purple-100 rounded-lg p-4 text-center">
+                            <div class="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
+                                <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-800 font-medium">บริการฉุกเฉิน 24ชม ฟรี!</span>
+                        </div>
+
+                        <!-- Service 5 -->
+                        <div class="bg-yellow-100 rounded-lg p-4 text-center">
+                            <div class="w-12 h-12 mx-auto mb-2 bg-white rounded-full flex items-center justify-center">
+                                <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-800 font-medium">ชมส์มคลังนท์</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Services Section -->
-            <div class="py-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-4">บริการ</h3>
-
-                <div class="grid grid-cols-4 gap-4">
-                    <!-- Service 1 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-2 bg-blue-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                                </path>
-                            </svg>
-                        </div>
-                        <span class="text-xs text-gray-700 font-medium">ล้างแอร์</span>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-2 bg-green-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                                </path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                        </div>
-                        <span class="text-xs text-gray-700 font-medium">ซ่อมแอร์</span>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-2 bg-purple-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4">
-                                </path>
-                            </svg>
-                        </div>
-                        <span class="text-xs text-gray-700 font-medium">ติดตั้งแอร์ใหม่</span>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-2 bg-yellow-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <span class="text-xs text-gray-700 font-medium">ตรวจสอบแอร์</span>
-                    </div>
-
-                    <!-- Service 5 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-2 bg-red-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <span class="text-xs text-gray-700 font-medium">บริการฉุกเฉิน</span>
-                    </div>
-
-                    <!-- Service 6 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-2 bg-indigo-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                        </div>
-                        <span class="text-xs text-gray-700 font-medium">ช่วยเหลือเฉินร้อฟร์</span>
-                    </div>
-
-                    <!-- Service 7 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-2 bg-pink-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                                </path>
-                            </svg>
-                        </div>
-                        <span class="text-xs text-gray-700 font-medium">บะบดสถิตอพร์</span>
-                    </div>
-
-                    <!-- Service 8 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-2 bg-gray-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                </path>
-                            </svg>
-                        </div>
-                        <span class="text-xs text-gray-700 font-medium">อื่นๆ</span>
+                <!-- Articles Section -->
+                <div class="py-4 px-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-gray-900">บทความ</h3>
+                        <a href="{{ route('articles.index') }}" class="text-blue-600 text-sm font-medium">ดูทั้งหมด</a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Articles Section -->
-            <div class="py-4">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-bold text-gray-900">บทความ</h3>
-                    <a href="{{ route('articles.index') }}" class="text-blue-600 text-sm font-medium">ดูทั้งหมด</a>
-                </div>
-
-                <div class="space-y-4">
-                    @forelse($articles as $article)
-                        <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
-                            onclick="window.location.href='{{ route('article.show', $article) }}'">
-                            <div class="p-4">
-                                <div class="flex gap-3">
+                <!-- Article Cards Horizontal Scroll -->
+                <div class="py-2 px-4">
+                    <div class="overflow-x-auto scrollbar-hide">
+                        <div class="flex gap-4 w-max">
+                            @forelse($articles as $article)
+                                <div class="w-64 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer flex-shrink-0"
+                                    onclick="window.location.href='{{ route('article.show', $article) }}'">
                                     @if ($article->image)
-                                        <div class="w-20 h-20 flex-shrink-0">
-                                            <img src="{{ $article->image_url }}" alt="{{ $article->title }}"
-                                                class="w-full h-full object-cover rounded-lg">
-                                        </div>
+                                        <img src="{{ $article->image_url }}" alt="{{ $article->title }}"
+                                            class="w-full h-32 object-cover">
                                     @else
-                                        <div
-                                            class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex-shrink-0 flex items-center justify-center">
-                                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
-                                                viewBox="0 0 24 24">
+                                        <div class="w-full h-32 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
                                                 </path>
                                             </svg>
                                         </div>
                                     @endif
-                                    <div class="flex-1">
-                                        <h4 class="font-semibold text-gray-900 mb-2">{{ $article->title }}</h4>
-                                        <p class="text-gray-600 text-sm line-clamp-2">
-                                            {{ $article->excerpt ?: Str::limit(strip_tags($article->content), 100) }}
+                                    <div class="p-4">
+                                        <h4 class="font-semibold text-gray-900 mb-2 text-sm line-clamp-2">{{ $article->title }}</h4>
+                                        <p class="text-gray-600 text-xs line-clamp-2 mb-2">
+                                            {{ $article->excerpt ?: Str::limit(strip_tags($article->content), 80) }}
                                         </p>
-                                        <div class="flex items-center mt-2 text-xs text-gray-500 space-x-3">
-                                            @if ($article->category)
-                                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                                                    {{ $article->category }}
-                                                </span>
-                                            @endif
+                                        <div class="flex items-center text-xs text-gray-500">
                                             @if ($article->reading_time)
                                                 <span>อ่าน {{ $article->reading_time }} นาที</span>
                                             @endif
-                                            <span>{{ number_format($article->views_count) }} ครั้ง</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @empty
+                                <div class="w-64 bg-white rounded-lg shadow-sm p-6 text-center text-gray-500 flex-shrink-0">
+                                    <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                        </path>
+                                    </svg>
+                                    <p class="text-sm">ยังไม่มีบทความ</p>
+                                </div>
+                            @endforelse
                         </div>
-                    @empty
-                        <div class="bg-white rounded-lg shadow-sm p-6 text-center text-gray-500">
-                            <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
-                                </path>
-                            </svg>
-                            <p>ยังไม่มีบทความ</p>
-                        </div>
-                    @endforelse
+                    </div>
                 </div>
             </div>
         </main>
