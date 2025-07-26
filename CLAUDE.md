@@ -14,7 +14,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Database Operations
 - `php artisan migrate` - Run database migrations
-- `php artisan migrate:fresh` - Drop all tables and run all migrations
+- `npm run fresh` - Drop all tables and run all migrations (alias for `php artisan migrate:fresh`)
+- `npm run fresh:seed` - Drop all tables, run migrations and seed database (alias for `php artisan migrate:fresh --seed`)
 - `php artisan db:seed` - Seed database with sample data
 
 ### Testing
@@ -26,7 +27,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Code Quality
 - `vendor/bin/pint` - Laravel Pint (PHP code formatter)
 - `npm run format:blade` - Blade template formatter
-- `npm run format` - Format both Blade templates and PHP code
+- `npm run fmt` - Format both Blade templates and PHP code (alias for format:blade + composer format)
 - `composer run format` - Run Laravel Pint formatter only
 
 ### Queue Management
@@ -228,6 +229,13 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
   - Published/Draft status with scheduling
   - SEO meta description support
   - View tracking and statistics
+- **Product Management**: Complete product catalog management
+  - Create/Edit/Delete products with full CRUD operations
+  - Image upload and management functionality
+  - Features and specifications management via text areas
+  - Category and brand management with predefined options
+  - Active/featured status control with checkboxes
+  - Auto sort order calculation
 - **Responsive Design**: Works on both desktop and mobile
 - **Thai Language Support**: All admin interfaces in Thai
 
@@ -239,6 +247,7 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
   - `dashboard.blade.php` - Admin dashboard
   - `promotions/` - Promotion CRUD views
   - `articles/` - Article CRUD views (index, create, edit, show)
+  - `products/` - Product CRUD views (index, create, edit, show)
   - `users/` - User management views (index, edit)
 
 ## Dealer System
@@ -267,14 +276,17 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 
 ### Product Features Implemented
 - **Product Catalog**: 2-column grid layout with product cards
-- **Product Detail**: Complete product information with images, ratings, specifications, and purchase button
+- **Product Detail**: Complete product information with images, specifications, and purchase button
 - **Navigation Integration**: Clickable product cards with route navigation
 - **Responsive Design**: Mobile-optimized layout with proper spacing
+- **Dynamic Promotion Carousel**: Integrated promotion banner system with database-driven content
+- **Related Products**: Smart recommendation based on category matching
 
 ### Product Directory Structure
 - `resources/views/app/products.blade.php` - Product listing page
 - `resources/views/app/product-detail.blade.php` - Product detail page
 - Controller methods in `DashboardController`: `products()`, `productDetail($productId)`
+- Admin controller: `app/Http/Controllers/Admin/ProductController.php` - Full CRUD operations
 
 ## Font System
 - **Global Font**: LINE Seed Sans TH applied across entire application
@@ -282,10 +294,10 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
 - **Coverage**: All Thai and English text throughout the application
 
 
-## Products System Database Design (Pending Implementation)
+## Products System Database Design (Implemented)
 
-### Planned Database Schema
-**Products Table**: Based on mockup analysis from products and product-detail pages
+### Database Schema
+**Products Table**: Complete implementation with air conditioner product data
 - **Basic Information**:
   - `id` - Primary key
   - `name` - Product name (e.g., "Tanin", "Mitsubishi Heavy Duty")
@@ -300,8 +312,6 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
   - `features` - Product features (JSON format)
   - `specifications` - Technical specifications (JSON format)
   - `category` - Product category
-  - `rating` - Average rating (decimal 0-5)
-  - `review_count` - Number of reviews
 
 - **Status & Management**:
   - `is_active` - Active/inactive status
@@ -309,10 +319,11 @@ All views use the unified responsive layout (`layouts/app.blade.php`):
   - `sort_order` - Display order
   - `created_at`, `updated_at` - Timestamps
 
-### Implementation Tasks (To Do)
-- [ ] Create products migration with complete schema
-- [ ] Create Product model with relationships and scopes
-- [ ] Create ProductSeeder with sample data matching mockup
-- [ ] Update DashboardController to use real product data instead of mockup
-- [ ] Add product image upload functionality for admin
-- [ ] Create admin product management interface
+### Implementation Status (Completed)
+- ✅ Products migration with complete schema and indexes
+- ✅ Product model with relationships, scopes, and accessors
+- ✅ ProductSeeder with 8 sample air conditioner products
+- ✅ DashboardController integration with real product data
+- ✅ Product image upload functionality for admin
+- ✅ Complete admin product management interface
+- ✅ Integration with existing promotion system on products page
