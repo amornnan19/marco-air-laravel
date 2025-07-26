@@ -28,10 +28,6 @@
                         alt="{{ $product->name }}" class="w-full h-80 object-cover">
                 @endif
 
-                <!-- Rating Overlay -->
-                <div class="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-xs">
-                    ⭐ {{ $product->rating }}
-                </div>
 
                 <!-- Brand Logo -->
                 @if($product->brand)
@@ -60,15 +56,6 @@
                     @endif
                 </h2>
 
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="flex text-yellow-400">
-                        <span>{{ $product->rating_stars }}</span>
-                    </div>
-                    <span class="text-sm text-gray-600">({{ $product->rating }})</span>
-                    @if($product->review_count > 0)
-                        <span class="text-sm text-gray-500">• {{ $product->review_count }} รีวิว</span>
-                    @endif
-                </div>
 
                 <div class="text-2xl font-bold text-red-600 mb-2">{{ $product->formatted_price }}</div>
                 <div class="text-sm text-gray-600 mb-6">ราคานี้ยังไม่รวมการติดตั้ง</div>

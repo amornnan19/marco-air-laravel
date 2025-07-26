@@ -40,8 +40,6 @@ class ProductSeeder extends Seeder
                     'รับประกัน' => '5 ปี'
                 ],
                 'category' => 'แอร์บ้าน',
-                'rating' => 4.5,
-                'review_count' => 128,
                 'is_active' => true,
                 'is_featured' => true,
                 'sort_order' => 1,
@@ -66,8 +64,6 @@ class ProductSeeder extends Seeder
                     'รับประกัน' => '3 ปี'
                 ],
                 'category' => 'แอร์บ้าน',
-                'rating' => 4.0,
-                'review_count' => 64,
                 'is_active' => true,
                 'is_featured' => false,
                 'sort_order' => 2,
@@ -93,8 +89,6 @@ class ProductSeeder extends Seeder
                     'รับประกัน' => '5 ปี'
                 ],
                 'category' => 'แอร์บ้าน',
-                'rating' => 4.8,
-                'review_count' => 256,
                 'is_active' => true,
                 'is_featured' => true,
                 'sort_order' => 3,
@@ -119,8 +113,6 @@ class ProductSeeder extends Seeder
                     'รับประกัน' => '10 ปี (คอมเพรสเซอร์)'
                 ],
                 'category' => 'แอร์บ้าน',
-                'rating' => 4.3,
-                'review_count' => 89,
                 'is_active' => true,
                 'is_featured' => false,
                 'sort_order' => 4,
@@ -146,8 +138,6 @@ class ProductSeeder extends Seeder
                     'รับประกัน' => '10 ปี'
                 ],
                 'category' => 'แอร์บ้าน',
-                'rating' => 4.6,
-                'review_count' => 147,
                 'is_active' => true,
                 'is_featured' => true,
                 'sort_order' => 5,
@@ -173,8 +163,6 @@ class ProductSeeder extends Seeder
                     'รับประกัน' => '5 ปี'
                 ],
                 'category' => 'แอร์บ้าน',
-                'rating' => 4.2,
-                'review_count' => 73,
                 'is_active' => true,
                 'is_featured' => false,
                 'sort_order' => 6,
@@ -199,8 +187,6 @@ class ProductSeeder extends Seeder
                     'รับประกัน' => '3 ปี'
                 ],
                 'category' => 'แอร์บ้าน',
-                'rating' => 3.8,
-                'review_count' => 42,
                 'is_active' => true,
                 'is_featured' => false,
                 'sort_order' => 7,
@@ -226,8 +212,6 @@ class ProductSeeder extends Seeder
                     'รับประกัน' => '5 ปี'
                 ],
                 'category' => 'แอร์บ้าน',
-                'rating' => 4.4,
-                'review_count' => 96,
                 'is_active' => true,
                 'is_featured' => false,
                 'sort_order' => 8,

@@ -27,8 +27,6 @@ return new class extends Migration
             $table->json('features')->nullable();
             $table->json('specifications')->nullable();
             $table->string('category')->nullable();
-            $table->decimal('rating', 2, 1)->default(0);
-            $table->integer('review_count')->default(0);
             
             // Status & Management
             $table->boolean('is_active')->default(true);

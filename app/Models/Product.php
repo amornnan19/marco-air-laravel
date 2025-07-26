@@ -18,8 +18,6 @@ class Product extends Model
         'features',
         'specifications',
         'category',
-        'rating',
-        'review_count',
         'is_active',
         'is_featured',
         'sort_order',
@@ -27,7 +25,6 @@ class Product extends Model
 
     protected $casts = [
         'price' => 'decimal:2',
-        'rating' => 'decimal:1',
         'is_active' => 'boolean',
         'is_featured' => 'boolean',
         'features' => 'array',
@@ -71,21 +68,6 @@ class Product extends Model
         return '฿ ' . number_format($this->price, 0);
     }
 
-    public function getRatingStarsAttribute(): string
-    {
-        $stars = '';
-        $fullStars = floor($this->rating);
-        
-        for ($i = 1; $i <= 5; $i++) {
-            if ($i <= $fullStars) {
-                $stars .= '⭐';
-            } else {
-                $stars .= '☆';
-            }
-        }
-        
-        return $stars;
-    }
 
     // Helper methods
     public function isActive(): bool
