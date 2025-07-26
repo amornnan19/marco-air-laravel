@@ -113,109 +113,28 @@
             <!-- Product Grid -->
             <div class="py-4">
                 <div class="grid grid-cols-2 gap-4">
-                    <!-- Product 1 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
-                        onclick="window.location.href='{{ route('product.detail', 1) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
-                            class="w-full h-32 object-cover">
-                        <div class="p-3">
-                            <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
-                            <p class="text-xs text-gray-600 mb-1">T T 4455</p>
-                            <p class="text-xs text-gray-600 mb-2">12,000 Btu</p>
-                            <p class="text-red-600 font-bold text-sm">฿ 11,990</p>
+                    @foreach($products as $product)
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
+                            onclick="window.location.href='{{ route('product.detail', $product->id) }}'">
+                            @if($product->image)
+                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}"
+                                    class="w-full h-32 object-cover">
+                            @else
+                                <img src="https://placehold.co/200x150/E5E7EB/6B7280?text={{ urlencode($product->brand . '+' . $product->name) }}" 
+                                    alt="{{ $product->name }}" class="w-full h-32 object-cover">
+                            @endif
+                            <div class="p-3">
+                                <h3 class="font-bold text-gray-900 text-sm mb-1">{{ $product->name }}</h3>
+                                @if($product->model)
+                                    <p class="text-xs text-gray-600 mb-1">{{ $product->model }}</p>
+                                @endif
+                                @if($product->btu)
+                                    <p class="text-xs text-gray-600 mb-2">{{ $product->btu }}</p>
+                                @endif
+                                <p class="text-red-600 font-bold text-sm">{{ $product->formatted_price }}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Product 2 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
-                        onclick="window.location.href='{{ route('product.detail', 2) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
-                            class="w-full h-32 object-cover">
-                        <div class="p-3">
-                            <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
-                            <p class="text-xs text-gray-600 mb-1">T T 4455</p>
-                            <p class="text-xs text-gray-600 mb-2">12,000 Btu</p>
-                            <p class="text-red-600 font-bold text-sm">฿ 11,990</p>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
-                        onclick="window.location.href='{{ route('product.detail', 3) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
-                            class="w-full h-32 object-cover">
-                        <div class="p-3">
-                            <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
-                            <p class="text-xs text-gray-600 mb-1">T T 4455</p>
-                            <p class="text-xs text-gray-600 mb-2">12,000 Btu</p>
-                            <p class="text-red-600 font-bold text-sm">฿ 11,990</p>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
-                        onclick="window.location.href='{{ route('product.detail', 4) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
-                            class="w-full h-32 object-cover">
-                        <div class="p-3">
-                            <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
-                            <p class="text-xs text-gray-600 mb-1">T T 4455</p>
-                            <p class="text-xs text-gray-600 mb-2">12,000 Btu</p>
-                            <p class="text-red-600 font-bold text-sm">฿ 11,990</p>
-                        </div>
-                    </div>
-
-                    <!-- Product 5 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
-                        onclick="window.location.href='{{ route('product.detail', 5) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
-                            class="w-full h-32 object-cover">
-                        <div class="p-3">
-                            <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
-                            <p class="text-xs text-gray-600 mb-1">T T 4455</p>
-                            <p class="text-xs text-gray-600 mb-2">12,000 Btu</p>
-                            <p class="text-red-600 font-bold text-sm">฿ 11,990</p>
-                        </div>
-                    </div>
-
-                    <!-- Product 6 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
-                        onclick="window.location.href='{{ route('product.detail', 6) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
-                            class="w-full h-32 object-cover">
-                        <div class="p-3">
-                            <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
-                            <p class="text-xs text-gray-600 mb-1">T T 4455</p>
-                            <p class="text-xs text-gray-600 mb-2">12,000 Btu</p>
-                            <p class="text-red-600 font-bold text-sm">฿ 11,990</p>
-                        </div>
-                    </div>
-
-                    <!-- Product 7 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
-                        onclick="window.location.href='{{ route('product.detail', 7) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
-                            class="w-full h-32 object-cover">
-                        <div class="p-3">
-                            <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
-                            <p class="text-xs text-gray-600 mb-1">T T 4455</p>
-                            <p class="text-xs text-gray-600 mb-2">12,000 Btu</p>
-                            <p class="text-red-600 font-bold text-sm">฿ 11,990</p>
-                        </div>
-                    </div>
-
-                    <!-- Product 8 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer"
-                        onclick="window.location.href='{{ route('product.detail', 8) }}'">
-                        <img src="https://placehold.co/200x150/E5E7EB/6B7280?text=Tanin+AC" alt="Tanin AC"
-                            class="w-full h-32 object-cover">
-                        <div class="p-3">
-                            <h3 class="font-bold text-gray-900 text-sm mb-1">Tanin</h3>
-                            <p class="text-xs text-gray-600 mb-1">T T 4455</p>
-                            <p class="text-xs text-gray-600 mb-2">12,000 Btu</p>
-                            <p class="text-red-600 font-bold text-sm">฿ 11,990</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </main>

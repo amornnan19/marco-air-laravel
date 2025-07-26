@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Product;
 use App\Models\Promotion;
 use Illuminate\Support\Facades\Auth;
 
@@ -87,15 +88,26 @@ class DashboardController extends Controller
 
     public function products()
     {
-        // For now, just return the mockup view
-        // Later this will fetch actual product data from database
-        return view('app.products');
+        $products = Product::active()
+            ->ordered()
+            ->get();
+
+        return view('app.products', compact('products'));
     }
 
     public function productDetail($productId)
     {
-        // For now, just return the mockup view
-        // Later this will fetch actual product data from database
-        return view('app.product-detail', compact('productId'));
+        $product = Product::active()
+            ->findOrFail($productId);
+
+        // Get related products from the same category
+        $relatedProducts = Product::active()
+            ->where('category', $product->category)
+            ->where('id', '!=', $product->id)
+            ->ordered()
+            ->limit(4)
+            ->get();
+
+        return view('app.product-detail', compact('product', 'relatedProducts'));
     }
 }
